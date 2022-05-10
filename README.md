@@ -39,9 +39,9 @@
 ### 정민규
 
 - Position: Front-end
-- Stack : React.js, Styled-Component
+- Stack : JavaScript, React.js, Styled-Component
 
 ### 박선교 
 
 - Position: Front-end
-- Stack : React.js, Styled-Component
+- Stack : JavaScript, React.js, Styled-Component
