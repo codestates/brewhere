@@ -8,12 +8,26 @@
 
 맥주를 즐길 수 있는 방법을 알려드리는 Brewhere입니다.
 
+[More in Wiki!](https://github.com/codestates/Brewhere/wiki)
+
 
 ## Tech Skills
 
 
 ## Members
+Team Leader
+Name: 정새얀
+Position: Backend
+
+Team Crew
+Name: 조진형
+Position: Backend
+
+Name: 정민규
+Position: Frontend
+
+Name: 박선교
+Position: Frontend
 
 
 
-[More in Wiki!](https://github.com/codestates/Brewhere/wiki)
