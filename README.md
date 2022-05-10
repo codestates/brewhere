@@ -16,7 +16,7 @@
 
 ### Team Leader
 
-* 정새얀 *
+*정새얀*
 
 - Position: Back-end
 
@@ -24,17 +24,17 @@
 
 ### Team Crew
 
-* 조진형 *
+*조진형*
 
 - Position: Back-end
 - Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
 
-* 정민규 *
+*정민규*
 
 - Position: Front-end
 - Stack : React.js, Styled-Component
 
-* 박선교 * 
+*박선교* 
 
 - Position: Front-end
 - Stack : React.js, Styled-Component
