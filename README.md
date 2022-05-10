@@ -10,6 +10,12 @@
 
 [More in Wiki!](https://github.com/codestates/Brewhere/wiki)
 
+## Feature
+
+- Brewhere 에 연동되어있는 지도를 활용해 이태원의 개성있는 브루어리들을 찾을 수 있습니다.
+- 추천검색어 기능을 활용해 입에 익지만, 이름과 종류를 알지못했던 맥주들을 찾을 수 있습니다.
+- 좋아요 기능을 통해, 내가 찾아봤던 브루어리를 마이페이지에서 다시 확인할 수 있습니다.
+
 ## Tech Skills
 
 ## Members
