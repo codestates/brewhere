@@ -30,8 +30,8 @@
 ### 정새얀
 
 - Position: Back-end
-
 - Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
+- main kick: oauth를 활용한 소셜 로그인 기능
 
 ### Team Crew
 
@@ -39,16 +39,19 @@
 
 - Position: Back-end
 - Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
+- main kick: oauth를 활용한 소셜 로그인 기능
 
 ### 정민규
 
 - Position: Front-end
 - Stack : JavaScript, React.js, Styled-Component
+- main kick: 좋아요 기능으로 한번에 모아볼 수 있는 브루어리 리스트업
 
 ### 박선교 
 
 - Position: Front-end
 - Stack : JavaScript, React.js, Styled-Component
+- main kick: 좋아요 기능으로 한번에 모아볼 수 있는 브루어리 리스트업
 
 
 ## Deploy(임시)
