@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Switch, Route, useHistory, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useHistory, Redirect } from 'react-router-dom';
 import Home from './pages/Home'
 import Like from './pages/Like'
 import Map from './pages/Map'
@@ -12,8 +12,9 @@ function App() {
   return (
     <div>
       a
+      <BrowserRouter>
       <Switch>
-      <Route exact path='/Home'>
+      <Route path='/'>
           <Home />
         </Route>
         <Route path='/Like'>
@@ -32,6 +33,7 @@ function App() {
           <Store />
         </Route>
       </Switch>
+      </BrowserRouter>
     </div>
   );
 }
