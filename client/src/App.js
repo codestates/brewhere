@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Nav from './components/Nav/Nav'
 import Home from './pages/Home'
 import Like from './pages/Like'
 import Map from './pages/Map'
@@ -10,8 +11,8 @@ import './App.css';
 function App() {
   return (
     <div>
-      abcdefghijklmnop
       <BrowserRouter>
+      <Nav />
       <Routes>
         <Route exact path='/' element={<Home />}>
         </Route>
