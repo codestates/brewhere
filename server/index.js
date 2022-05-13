@@ -14,8 +14,6 @@ app.use(
 app.use(cookieParser());
 // app.post("/login", controllers.login);
 
-// route - 
-
 app.get('/', (req, res) => {
   res.send('Server On');
 })
