@@ -1,13 +1,18 @@
 import React, {  } from 'react';
+//import logoHorizontal from './img/logo_x1_horizontal.png'
 
 export default function Nav() {
 
 
 
 return (
-
-  <div>네비게이션바
-  </div>
-
+  <>
+    <header>
+      
+      <div className='nav-logo'>
+        {/* <img src={logoHorizontal} alt='logo'></img> */}
+      </div>
+    </header>
+  </>
   );
 }

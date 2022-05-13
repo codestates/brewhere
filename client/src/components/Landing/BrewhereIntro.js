@@ -9,7 +9,7 @@ return (
     <div className="brewhereIntro">
       <img className='logoSquare' src={logo_x05_square} alt='brewhere logo square'></img>
       <div className='rightBox'>
-        <div className='slogan'>Brew where? Brew here!</div>
+        <div className='title'>Brew where? Brew here!</div>
         <span className='underBar'></span>
         <div className='introText'>
           <div className='line'>국내 수제 맥주의 맛은 <span>수 백 가지</span>가 넘습니다</div>
