@@ -2,6 +2,7 @@
   /* background-color: orange; */
   display: flex;
   justify-content: center;
+  margin-top: 200px;
 }
 
 .logoSquare {
@@ -9,16 +10,12 @@
   width: 400px;
 }
 
-.rightBox {
-  /* background-color: tomato; */
-}
-
-.slogan {
+.title {
   font-size: 40px;
   font-weight: bold;
 }
 
-.slogan:after {
+.title:after {
   content: "";
   display: block;
   width: 100px;
