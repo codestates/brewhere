@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Switch, Route, useHistory, Redirect } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
 import Like from './pages/Like'
 import Map from './pages/Map'
@@ -11,28 +10,22 @@ import './App.css';
 function App() {
   return (
     <div>
-      a
+      abcdefghijklmnop
       <BrowserRouter>
-      <Switch>
-      <Route path='/'>
-          <Home />
+      <Routes>
+        <Route exact path='/' element={<Home />}>
         </Route>
-        <Route path='/Like'>
-          <Like />
+        <Route path='/Like' element={<Like />}>
         </Route>
-        <Route path='/Map'>
-          <Map />
+        <Route path='/Map' element={<Map />}>
         </Route>
-        <Route path='/Mypage'>
-          <Mypage />
+        <Route path='/Mypage' element={<Mypage />}>
         </Route>
-        <Route path='/Signup'>
-          <Signup />
+        <Route path='/Signup' element={<Signup />}>
         </Route>
-        <Route path='/Store'>
-          <Store />
+        <Route path='/Store' element={<Store />}>
         </Route>
-      </Switch>
+      </Routes>
       </BrowserRouter>
     </div>
   );
