@@ -1,0 +1,41 @@
+.ft-third {
+  background-color: rgb(101, 159, 210);
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.team-macduck {
+  width: 1296px;
+  margin: 0 auto;
+}
+
+.ft-title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.members {
+  width: 150px;
+  height: 150px; 
+}
+
+.team-img {
+  width: 150px;
+  height: 150px; 
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+.team {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.ft-name {
+  text-align: center;
+}
+
+.ft-position {
+  text-align: center;
+}
