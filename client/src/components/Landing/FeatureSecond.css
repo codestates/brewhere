@@ -1,0 +1,38 @@
+.fs-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10%;
+}
+
+.fs-title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.fs-title:after {
+  content: "";
+  display: block;
+  width: 100px;
+  border-bottom: 2px solid #000000;
+  margin: 40px 0px;
+}
+
+.FSimg {
+  width: 30%;
+  height: 30%;
+  object-fit: cover;
+  margin-left: 6%;
+}
+
+.kakao-map-img {
+  margin: 1px;
+  width: 15%;
+  height: auto;
+}
+
+.fs-line {
+  padding-bottom: 10px;
+  margin-left: 5%;
+  font-size: 32px;
+}
