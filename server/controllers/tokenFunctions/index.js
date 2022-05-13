@@ -10,16 +10,16 @@ module.exports = {
     return sign(data, process.env.REFRESH_SECRET, { expiresIn: '10d' });
   },
 
+  sendAccessToken: (res, accessToken) => {
+    res.json({ accessToken: accessToken, message: '로그인 되었습니다' });
+  },
+
   sendRefreshToken: (res, refreshToken) => {
     res.cookie('refreshToken', refreshToken, {
       sameSite: 'none',
       secure: true,
       httpOnly: true,
     });
-  },
-
-  sendAccessToken: (res, accessToken) => {
-    res.json({ accessToken: accessToken, message: '로그인 되었습니다' });
   },
 
   checkAccessToken: req => {
