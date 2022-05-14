@@ -1,0 +1,32 @@
+.navbar {
+  height: 5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem calc((100vw - 1200px) / 2);
+  margin-bottom: 1rem;
+}
+
+.nav-logo-img {
+  width: 30%;
+  height: auto;
+  align-items: center;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  font-size: 1.2rem;
+  text-decoration: none;
+  letter-spacing: 0.1rem;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+}
+
+.search {
+  background-color: antiquewhite;
+}
+
+.search-bar {
+  width: 200px;
+}
