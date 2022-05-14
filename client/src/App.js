@@ -9,6 +9,7 @@ import Store from './pages/Store'
 import './App.css';
 
 function App() {
+  
   return (
     <div>
       <BrowserRouter>
