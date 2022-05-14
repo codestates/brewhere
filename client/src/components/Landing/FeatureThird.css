@@ -1,7 +1,7 @@
 .ft-third {
-  background-color: rgb(101, 159, 210);
   width: 1440px;
-  margin: 0 auto;
+  margin-top: 200px;
+  margin-bottom: 200px;
 }
 
 .team-macduck {
@@ -10,32 +10,40 @@
 }
 
 .ft-title {
+  text-align: center;
+  padding: 40px 0;
   font-size: 40px;
   font-weight: bold;
 }
 
-.members {
-  width: 150px;
-  height: 150px; 
-}
-
-.team-img {
-  width: 150px;
-  height: 150px; 
-  border-radius: 70%;
-  overflow: hidden;
-}
-
 .team {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
+.members {
+  width: 200px;
+  height: auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+.members img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.members:nth-child(2) img {
+  background-color: rgb(98, 150, 198);
+}
+
+.members:nth-child(3) img {
+  background-color: rgb(141, 216, 134);
+}
 
 .ft-name {
-  text-align: center;
-}
-
-.ft-position {
-  text-align: center;
+  font-weight: bold;
+  margin: 5px;
 }

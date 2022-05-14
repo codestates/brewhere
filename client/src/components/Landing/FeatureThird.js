@@ -22,13 +22,13 @@ return (
         </div>
 
         <div className="members">
-          <img classsName="team-img" src={mem1Img} alt='mem1-img' />
+          <img classsName="team-img sb" src={mem1Img} alt='mem1-img' />
           <div className="ft-name">조진형</div>
           <div className="ft-position">Backend</div>
         </div>
 
         <div className="members">
-          <img classsName="team-img" src={mem2Img} alt='mem2-img' />
+          <img classsName="team-img jg" src={mem2Img} alt='mem2-img' />
           <div className="ft-name">박선교</div>
           <div className="ft-position">Frontend</div>
         </div>
@@ -39,7 +39,7 @@ return (
           <div className="ft-position">Frontend</div>
         </div>
       </div>
-    </div>
+      </div>
     </div>
   </>
   );
