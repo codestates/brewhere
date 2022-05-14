@@ -8,7 +8,7 @@ export default function Nav() {
 return (
   <>
     <header>
-      
+      Nav bar
       <div className='nav-logo'>
         {/* <img src={logoHorizontal} alt='logo'></img> */}
       </div>

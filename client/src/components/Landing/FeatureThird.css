@@ -1,7 +1,6 @@
 .ft-third {
-  /* background-color: rgb(101, 159, 210); */
   width: 1440px;
-  margin: 0 auto;
+  margin-top: 200px;
   margin-bottom: 200px;
 }
 
@@ -11,19 +10,20 @@
 }
 
 .ft-title {
+  text-align: center;
+  padding: 40px 0;
   font-size: 40px;
   font-weight: bold;
 }
 
 .team {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .members {
-  /* background-color: tomato; */
   width: 200px;
-  height: 200px;
+  height: auto;
   overflow: hidden;
   text-align: center;
 }
@@ -35,8 +35,16 @@
   border-radius: 50%;
 }
 
-.ft-name {
+.ft-position {
+.members:nth-child(2) img {
+  background-color: rgb(98, 150, 198);
 }
 
-.ft-position {
+.members:nth-child(3) img {
+  background-color: rgb(141, 216, 134);
+}
+
+.ft-name {
+  font-weight: bold;
+  margin: 5px;
 }
