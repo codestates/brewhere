@@ -34,7 +34,7 @@ return (
         </div>
 
         <div className="members">
-            <img classsName="team-img" src={mem3Img} alt='mem3-img' />
+          <img classsName="team-img" src={mem3Img} alt='mem3-img' />
           <div className="ft-name">정민규</div>
           <div className="ft-position">Frontend</div>
         </div>

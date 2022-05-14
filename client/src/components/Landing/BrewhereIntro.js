@@ -18,7 +18,6 @@ return (
           <div className='line'><span>서울</span>에서 나만의 맥주를 찾아보세요</div>
         </div>
       </div>
-      
     </div>
   </>
   );
