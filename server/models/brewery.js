@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Brewery.hasMany(models.Menu, { foreignKey: b_id, sourceKey: id});
+      Brewery.hasMany(models.Mypage, { foreignKey: b_id, sourceKey: id});
     }
   }
   Brewery.init({
