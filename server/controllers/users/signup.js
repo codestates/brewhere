@@ -10,7 +10,7 @@ module.exports = async(req, res) => {
     await User.findOrCreate({
       where: {user_email: user_email},
       default: {user_name, password}
-    }).then(([, created]) => {
+    }).then(([users, created]) => {
       if(!created) {
         res.status(409).json({message: '이미 등록된 이메일입니다'})
       } else {

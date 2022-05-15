@@ -10,8 +10,8 @@ class FactoryService extends DatabaseConnector {
       userId: `'kimcoding'`,
       email: `'kimcoding@codestates.com'`,
       password: `'1234'`,
-      createdAt: `'2020-11-18 10:00:00'`,
-      updatedAt: `'2020-11-18 10:00:00'`,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     };
   }
 
