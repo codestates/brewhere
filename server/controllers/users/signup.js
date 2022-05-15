@@ -1,13 +1,13 @@
-const { user } = require('../models');
+const { User } = require('../../models');
 const { generateAccessToken } = require('../controllers/tokenFunctions');
 
-module.exports = (req, res) => {
+module.exports = async(req, res) => {
   const {user_name, user_email, password} = req.body;
 
   if(!user_name || !user_email || !password) {
     res.status(400).json({message: '모든 항목은 필수입니다'})
   } else {
-    await user.findOrCreate({
+    await User.findOrCreate({
       where: {user_email: user_email},
       default: {user_name, password}
     }).then(([, created]) => {
