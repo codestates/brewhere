@@ -17,10 +17,10 @@ return (
             <img className='nav-logo-img' src={logoHorizontal} alt='logo'></img>
           </NavLink>
         </div>
-        <NavLink to='/map' className='nav-links search'>
-          <div>검색</div>
-          <input className='search-bar' type='text' placeholder='여기서 브루어리를 검색하세요'></input>
-        </NavLink>
+          <NavLink to='/map' className='nav-links search'>
+            <div>검색</div>
+            <input className='search-bar' type='text' placeholder='여기서 브루어리를 검색하세요'></input>
+          </NavLink>
         
         <div className='nav-links'>
           <LoginModal></LoginModal>

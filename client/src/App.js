@@ -13,21 +13,21 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <Nav />
-      <Routes>
-        <Route exact path='/' element={<Home />}>
-        </Route>
-        <Route path='/Like' element={<Like />}>
-        </Route>
-        <Route path='/Map' element={<Map />}>
-        </Route>
-        <Route path='/Mypage' element={<Mypage />}>
-        </Route>
-        <Route path='/Signup' element={<Signup />}>
-        </Route>
-        <Route path='/Store' element={<Store />}>
-        </Route>
-      </Routes>
+        <Nav />
+          <Routes>
+            <Route exact path='/' element={<Home />}>
+            </Route>
+            <Route path='/like' element={<Like />}>
+            </Route>
+            <Route path='/map' element={<Map />}>
+            </Route>
+            <Route path='/mypage' element={<Mypage />}>
+            </Route>
+            <Route path='/signup' element={<Signup />}>
+            </Route>
+            <Route path='/store' element={<Store />}>
+            </Route>
+          </Routes>
       </BrowserRouter>
     </div>
   );

@@ -1,0 +1,17 @@
+.modal-login {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 70%;
+}
+
+.modal-login-logo {
+  width: 20%;
+  height: auto;
+}
+
+.input-login {
+  width: 50%;
+  height: 5%;
+}
