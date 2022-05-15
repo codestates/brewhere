@@ -1,17 +1,43 @@
 .modal-login {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 70%;
-  height: 70%;
+  margin: auto;
+  
 }
 
 .modal-login-logo {
   width: 20%;
   height: auto;
+  margin-left: 40%;
+}
+
+.close-btn {
+  width: 1.5%;
+  height: auto;
+  text-align: center;
 }
 
 .input-login {
   width: 50%;
-  height: 5%;
+  height: auto;
+
+}
+
+.login-area {
+  text-align: center;
+  /* margin-top: 5%;
+  margin-left: 30%; */
+}
+
+.kakao_btn{
+  background-image: url("../../Landing/img/kakao_login_medium_wide.png");
+  background-repeat: no-repeat;
+  background-size : cover;
+  margin: 10% 38%;
+  color: transparent;
+  width: 300px;
+  height: 45px;
+  
+}
+
+.signup-text {
+  text-align: center;
 }

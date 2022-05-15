@@ -6,6 +6,7 @@ import Map from './pages/Map'
 import Mypage from './pages/Mypage'
 import Signup from './pages/Signup'
 import Store from './pages/Store'
+import KakaoRedirectHandler from './components/Kakao/KakaoRedirectHandeler'
 import './App.css';
 
 function App() {
@@ -15,18 +16,13 @@ function App() {
       <BrowserRouter>
         <Nav />
           <Routes>
-            <Route exact path='/' element={<Home />}>
-            </Route>
-            <Route path='/like' element={<Like />}>
-            </Route>
-            <Route path='/map' element={<Map />}>
-            </Route>
-            <Route path='/mypage' element={<Mypage />}>
-            </Route>
-            <Route path='/signup' element={<Signup />}>
-            </Route>
-            <Route path='/store' element={<Store />}>
-            </Route>
+            <Route exact path='/' element={<Home />} />
+            <Route path='/like' element={<Like />} />
+            <Route path='/map' element={<Map />} />
+            <Route path='/mypage' element={<Mypage />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/store' element={<Store />} />
+            <Route path="/oauth/callback/kakao" component={KakaoRedirectHandler} />
           </Routes>
       </BrowserRouter>
     </div>
