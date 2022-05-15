@@ -12,12 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Mypage.belongsTo(models.Brewery, { foreignKey: id, sourceKey: b_id});
-      Mypage.belongsTo(models.Users, { foreignKey: id, sourceKey: user_id});
+      Mypage.belongsTo(models.Users, { foreignKey: id, sourceKey: user_id})
     }
   }
   Mypage.init({
     user_id: DataTypes.INTEGER,
-    b_id: DataTypes.INTEGER,
+    b_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Mypage',
