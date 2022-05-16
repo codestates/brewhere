@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     brewery_image: DataTypes.STRING,
     brewery_description: DataTypes.STRING,
     brewery_address: DataTypes.STRING,
-    business_hour: DataTypes.STRING
+    business_hour: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Brewery',

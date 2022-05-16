@@ -5,6 +5,10 @@ export default function Signup() {
 
 
 return (
-  <div>Signup</div>
+  <>
+    <div>회원가입</div>
+    <div>이메일</div>
+    <input></input>
+  </>
   );
 }
