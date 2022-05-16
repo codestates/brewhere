@@ -7,5 +7,4 @@ module.exports = {
   nickname: require('./users/username'),
   password: require('./users/password'),
   withdrawal: require('./users/withdrawal'),
-  breweryid: ('./brewery/:breweryid'),
 };
