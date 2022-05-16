@@ -4,6 +4,7 @@ import axios from 'axios';
 
 
 const KakaoRedirectHandler = () => {
+  const code = new URL(window.location.href).searchParams.get("code");
   const history = useHistory()
   useEffect(()=> {
     let params = new URL(document.location.toString()).searchParams;
@@ -23,12 +24,12 @@ const KakaoRedirectHandler = () => {
     }
   }).then((res) => {
       console.log(res)
-      history.replace("/profile");
+      history.replace("/KakaoMypage");
       // res에 포함된 토큰 받아서 원하는 로직을 하면된다.
   })
   }, [])
 
-  return null;
+  return { code };
 };
 
 export default KakaoRedirectHandler;

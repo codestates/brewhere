@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import KakaoMapScript from "./MapContainer";
+const { kakao } = window;
+
 
 export default function Map() {
 
