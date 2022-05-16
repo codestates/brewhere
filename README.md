@@ -45,13 +45,13 @@
 
 - Position: Front-end
 - Stack : JavaScript, React.js, Styled-Component
-- main kick: 좋아요 기능으로 한번에 모아볼 수 있는 브루어리 리스트업
+- main kick: 카카오맵 api를 활용한 브루어리 위치 찾기
 
 ### 박선교 
 
 - Position: Front-end
 - Stack : JavaScript, React.js, Styled-Component
-- main kick: 좋아요 기능으로 한번에 모아볼 수 있는 브루어리 리스트업
+- main kick: 카카오맵 api를 활용한 브루어리 위치 찾기
 
 
 ## Deploy(임시)
