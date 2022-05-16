@@ -1,0 +1,59 @@
+.modal-signup {
+  margin: auto;
+  
+}
+
+.modal-signup-logo {
+  width: 30%;
+  height: auto;
+  /* margin-left: 40%; */
+}
+
+.close-btn {
+  width: 1.5%;
+  height: auto;
+  text-align: center;
+}
+
+.pw-vaildate {
+  font-size: 12px;
+  margin: 0.5%;
+}
+
+.input-signup {
+  width: 60%;
+  height: 8%;
+  margin: 2%;
+  font-size: 18px;
+  /* text-shadow: lightgray 1px 1px; */
+  text-align: center;
+}
+
+.input-signup-check {
+  width: 60%;
+  height: 8%;
+  margin: 2%;
+  font-size: 18px;
+  /* text-shadow: lightgray 1px 1px; */
+  text-align: center;
+}
+
+.clickedInputLine {
+  margin: 20px 0 30px 0;
+  width: 350px;
+  border-bottom: 2px solid #adc088;
+}
+
+.signup-area {
+  text-align: center;
+  /* margin-top: 5%;
+  margin-left: 30%; */
+}
+
+/* .signup-btn {
+  
+}
+
+.signup-btn-fail {
+
+} */

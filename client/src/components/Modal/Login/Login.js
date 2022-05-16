@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-import logo from "../../Landing/img/logo_x05_square.png";
-import styled from "styled-components";
-import "./Login.css";
+import React, { useState } from 'react';
+import Modal from 'react-modal';
+import logo from '../../Landing/img/logo_x05_square.png'
+import styled from 'styled-components';
+import SignupMoadl from '../Signup/Signup'
+import './Login.css'
+
+Modal.setAppElement('#root')
 
 export const ModalContainer = styled.div`
   // TODO : Modal을 구현하는데 전체적으로 필요한 CSS를 구현합니다.
@@ -89,44 +93,35 @@ function Login() {
           로그인
         </ModalBtn>
 
-        {modalIsOpen ? (
-          <ModalBackdrop onClick={openModalHandler}>
-            <ModalView
-              onClick={(event) => {
-                event.stopPropagation();
-              }}
-            >
-              <div className="close-btn" onClick={openModalHandler}>
-                &times;
-              </div>
 
-              <div className="desc">
-                <img
-                  src={logo}
-                  alt="modal-login-logo"
-                  className="modal-login-logo"
-                />
-              </div>
-              <div className="desc">이메일</div>
-              <input
-                type="text"
-                className="input-login"
-                placeholder="example@example.com"
-              />
-              <div className="desc">비밀번호</div>
-              <input
-                type="password"
-                className="input-login"
-                placeholder="8자 이상의 비밀번호를 입력해주세요"
-              />
-              <button className="desc login-btn">로그인</button>
+        { modalIsOpen ? <ModalBackdrop onClick={openModalHandler}>
+                    <ModalView onClick={(event) => {
+                      event.stopPropagation()
+                    }
+                  }>
+                      <div className="close-btn" onClick={openModalHandler}>
+                        &times;
+                      </div>
 
-              <a href={KAKAO_AUTH_URL}>
-                <div className="kakao_btn"></div>
-              </a>
-            </ModalView>
-          </ModalBackdrop>
-        ) : null}
+                      <div className="desc">
+                        <img src={logo} alt="modal-login-logo" className="modal-login-logo"/>
+                      </div>
+                      <div className="desc">이메일</div>
+                      <input type="text" className='input-login' placeholder="example@example.com" />
+                      <div className="desc">비밀번호</div>
+                      <input type="password" className='input-login' placeholder="8자 이상의 비밀번호를 입력해주세요" />
+                      <button className="desc login-btn">로그인</button>
+                      <a href={KAKAO_AUTH_URL}>
+                        <div 
+                            className="kakao_btn"
+                            >
+                        </div>
+                      </a>
+                      <br />
+                      <div className="signup-text">아이디가 없으신가요? <span className="signup-link"><SignupMoadl /></span></div>
+                    </ModalView>
+                  </ModalBackdrop> 
+                  : null}
       </ModalContainer>
     </>
   );

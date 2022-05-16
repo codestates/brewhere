@@ -2,9 +2,9 @@ module.exports = {
   signup: require('./users/signup'),
   login: require('./users/login'),
   logout: require('./users/logout'),
-  mypage: require('./users/mypage'),
+  mypage: require('./mypage/mypage'),
   emailCheck: require('./users/emailCheck'),
-  nickname: require('./users/username'),
+  username: require('./users/username'),
   password: require('./users/password'),
   withdrawal: require('./users/withdrawal'),
 };
