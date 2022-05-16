@@ -9,27 +9,27 @@
 }
 
 #mainTop {
-  margin: 250px 0;
+  margin: 15.625rem 0;
   flex-direction: column;
   width: 858px;
-  transform: translateX(50px);
+  transform: translateX(3.125rem);
 }
 
 .mainTitle {
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: bold;
   color: #FFFFFF;
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
 }
 
 .slogan {
-  font-size: 48px;
+  font-size: 3rem;
   color: #FFFFFF;
 }
 
 #bigSlogan {
   margin-left: 20px;
-  font-size: 64px;
+  font-size: 4rem;
 }
 
 .startBtn {
