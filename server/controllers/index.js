@@ -4,7 +4,7 @@ module.exports = {
   logout: require('./users/logout'),
   mypage: require('./users/mypage'),
   emailCheck: require('./users/emailCheck'),
-  nickname: require('./users/username'),
+  username: require('./users/username'),
   password: require('./users/password'),
   withdrawal: require('./users/withdrawal'),
 };
