@@ -11,7 +11,7 @@ const KakaoMypage = () => {
         url: "/v2/user/me",
       });
       // 사용자 정보 변수에 저장
-      console.log(data)
+      console.log(data);
       setUserId(data.id);
       setNickName(data.properties.nickname);
       setProfileImage(data.properties.profile_image);
@@ -27,7 +27,7 @@ const KakaoMypage = () => {
     <div>
       <h2>{user_id}</h2>
       <h2>{nickName}</h2>
-      <img src={profileImage}></img>
+      <img src={profileImage} alt='kakao-profile-image'></img>
     </div>
   );
 };
