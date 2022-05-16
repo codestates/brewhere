@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import logo from '../../Landing/img/logo_x05_square.png'
 import styled from 'styled-components';
+import SignupMoadl from '../Signup/Signup'
 import './Login.css'
 
 Modal.setAppElement('#root')
@@ -110,14 +111,14 @@ function Login () {
                       <div className="desc">비밀번호</div>
                       <input type="password" className='input-login' placeholder="8자 이상의 비밀번호를 입력해주세요" />
                       <button className="desc login-btn">로그인</button>
-
                       <a href={KAKAO_AUTH_URL}>
                         <div 
                             className="kakao_btn"
                             >
                         </div>
                       </a>
-
+                      <br />
+                      <div className="signup-text">아이디가 없으신가요? <span className="signup-link"><SignupMoadl /></span></div>
                     </ModalView>
                   </ModalBackdrop> 
                   : null}
