@@ -1,10 +1,11 @@
-const { user } = require('../models');
+const { user } = require('../../models');
+
 const {
   generateAccessToken,
   generateRefreshToken,
   sendAccessToken,
   sendRefreshToken,
-} = require('../controllers/tokenFunctions');
+} = require('../../controllers/tokenFunctions');
 
 module.exports = async (req, res) => {
   const { user_email, password } = req.body;
