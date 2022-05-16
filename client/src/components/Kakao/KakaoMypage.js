@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Mypage = () => {
+const KakaoMypage = () => {
   const [user_id, setUserId] = useState();
   const [nickName, setNickName] = useState();
   const [profileImage, setProfileImage] = useState();
@@ -22,6 +22,7 @@ const Mypage = () => {
   useEffect(() => {
     getProfile();
   }, []);
+
   return (
     <div>
       <h2>{user_id}</h2>
@@ -30,4 +31,4 @@ const Mypage = () => {
     </div>
   );
 };
-export default Mypage;
+export default KakaoMypage;
