@@ -13,7 +13,7 @@ function Menu () {
     
   return (
     <>
-      <button onClick={()=> setModalIsOpen(!modalIsOpen)}>메뉴</button>
+      <button onClick={()=> setModalIsOpen(!modalIsOpen)} >메뉴</button>
       <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} >
         {/* onClick = { 마이페이지, 지도, 찜한 목록 Link } */}
         {/*  */}
