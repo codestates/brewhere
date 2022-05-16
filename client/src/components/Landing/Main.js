@@ -1,4 +1,5 @@
 import React, {  } from 'react';
+import { NavLink } from 'react-router-dom';
 import doublearrow from './img/double_arrow_white.png'
 import './Main.css'
 // import { useNavigate } from 'react-router-dom';
@@ -21,7 +22,7 @@ return (
         <div className='mainTitle'>나만의 <span>맥주</span>를 찾고 싶은 당신을 위하여</div>
         <div className='slogan'>Brew where ?<span id='bigSlogan'>Brew here !</span></div>
         <div className='startBtn'>
-          <p>Let's Brew</p>
+          <p><NavLink to='/map' style={{ textDecoration: 'none' }}>Let's Brew</NavLink></p>
         </div>
       </div>
       <div className='scrollDown'>
