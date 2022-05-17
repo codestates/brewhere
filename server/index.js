@@ -16,14 +16,14 @@ app.get('/', function(req, res) {
   res.send('Hello World!'); 
 });
 
-sequelize.sync({ force: false})
-  .then(() => {
-    console.log('데이터베이스 연결 성공')
-  })
-  .catch((err) => {
-    console.error(err)
-  })
-  //데이터베이스 연결 위해 추가
+sequelize.sync({ force: false })
+.then(() => {
+  console.log('데이터베이스 연결 성공')
+})
+.catch((err) => {
+  console.error(err)
+})
+//데이터베이스 연결 위해 추가
 
 app.post("/signup", controllers.signup);
 app.post("/login", controllers.login);
