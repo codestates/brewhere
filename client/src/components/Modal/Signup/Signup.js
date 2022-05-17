@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../Landing/img/logo_x05_square.png'
 import styled from 'styled-components';
 import './Signup.css'
@@ -67,6 +68,13 @@ export const ModalView = styled.div.attrs(props => ({
 `;
 
 function Signup () {
+  const navigate = useNavigate();
+
+  const [userinfo, setUserinfo] = useState({
+    user_name: '',
+    user_email: '',
+    password: '',
+  })
 
   const [user_name, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -74,16 +82,11 @@ function Signup () {
   const [user_email, setEmail] = useState("");
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const [passwordError, setPasswordError] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [validatedAll, setValidatedAll] = useState(false);
-
-  const [userinfo, setUserinfo] = useState({
-    user_email: '',
-    password: '',
-    user_name: ''
-  })
   
   const handleInputValue = (key) => (e) => {
     setUserinfo({ ...userinfo, [key]: e.target.value });
@@ -138,12 +141,14 @@ function Signup () {
 }
 
 const onSubmit = () => {
-  axios.post("https://localhost:8080/signup", 
+  console.log({...userinfo})
+  axios.post("http://localhost:8080/signup", 
   { ...userinfo },
   {
     headers: { "Content-Type": "application/json" },
     withCredentials: true,
-  })
+    // "rejectUnauthorized": false
+  }).then(() => navigate("/"))
   // TODO: Signup API Call
 }
 
@@ -174,7 +179,7 @@ const onSubmit = () => {
                   className='input-signup' 
                   placeholder="example@example.com" 
                   onBlur={ onChangeEmail }
-                  onChange={ setEmail }
+                  onChange={ handleInputValue('user_email') }
                 />
                 <div className="desc">닉네임</div>
                 <input 
@@ -182,7 +187,7 @@ const onSubmit = () => {
                   className='input-signup' 
                   placeholder="MACDUCK" 
                   onBlur={ onChangeUsername }
-                  onChange={ setUsername }
+                  onChange={ handleInputValue('user_name') }
                 />
                 <div className="desc">비밀번호</div>
                 { passwordError ?
@@ -193,7 +198,7 @@ const onSubmit = () => {
                   className='input-signup'
                   placeholder="8자 이상의 영문, 숫자를 입력해주세요" 
                   onBlur={ checkPassword }
-                  onChange={ setPassword } 
+                  onChange={ handleInputValue('password') } 
                 />
                 <div className="desc">비밀번호 확인</div>
                 { confirmPasswordError ?
