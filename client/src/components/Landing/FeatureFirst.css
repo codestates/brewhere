@@ -1,0 +1,42 @@
+.ff-flex {
+  /* background-color: orange; */
+  display: flex;
+  justify-content: center;
+}
+
+.ff-title {
+  margin-top: 10%;
+  margin-bottom: 3%;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.FFimg {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+}
+
+.ff-underbar:after {
+  content: "";
+  display: block;
+  width: 100px;
+  border-bottom: 2px solid #000000;
+  margin: 40px;
+  margin-left: 20%;
+}
+
+
+.ff-line-1 {
+  padding-bottom: 10px;
+  margin-top: 5%;
+  margin-left: 20%;
+  font-size: 32px;
+}
+
+.ff-line-2 {
+  padding-bottom: 10px;
+  margin-left: 20%;
+  font-size: 32px;
+}
