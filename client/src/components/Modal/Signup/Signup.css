@@ -1,3 +1,10 @@
+button {
+  text-align: center;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
 .modal-signup {
   margin: auto;
   
@@ -15,7 +22,7 @@
   text-align: center;
 }
 
-.pw-vaildate {
+.validate-text {
   font-size: 12px;
   margin: 0.5%;
 }
@@ -46,14 +53,8 @@
 
 .signup-area {
   text-align: center;
-  /* margin-top: 5%;
-  margin-left: 30%; */
 }
 
 /* .signup-btn {
   
-}
-
-.signup-btn-fail {
-
 } */

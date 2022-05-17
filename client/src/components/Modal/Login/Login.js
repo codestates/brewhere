@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import Modal from 'react-modal';
 import logo from '../../Landing/img/logo_x05_square.png'
 import styled from 'styled-components';
 import SignupMoadl from '../Signup/Signup'
 import './Login.css'
 
-Modal.setAppElement('#root')
 
 export const ModalContainer = styled.div`
   // TODO : Modal을 구현하는데 전체적으로 필요한 CSS를 구현합니다.
@@ -74,11 +72,11 @@ function Login() {
   };
 
   // 모달 창이 열렸을 때, 스크롤 막기
-  if (modalIsOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "unset";
-  }
+  // if (modalIsOpen) {
+  //   document.body.style.overflow = "hidden";
+  // } else {
+  //   document.body.style.overflow = "unset";
+  // }
 
   // 카카오 로그인 관련
   const CLIENT_ID = "a879c6361070a85ff535c43fddfd2bba";
