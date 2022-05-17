@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './KakaoMypage.css'
 
 const KakaoMypage = () => {
   const [user_id, setUserId] = useState();
@@ -24,7 +25,7 @@ const KakaoMypage = () => {
   }, []);
 
   return (
-    <div>
+    <div className='kakao-mypage'>
       <h2>{user_id}</h2>
       <h2>{nickName}</h2>
       <img src={profileImage} alt='kakao-profile-image'></img>

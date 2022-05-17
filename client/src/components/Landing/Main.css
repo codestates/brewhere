@@ -1,3 +1,11 @@
+a:hover, a:visited, a:link, a:active {
+  text-decoration-line: none;
+}
+
+a:hover {
+  color: #a00;
+}
+
 .main {
   height: 100vh;
   display: flex;
@@ -42,6 +50,7 @@
   flex-direction: column;
   border-radius: 30px;
   cursor: pointer;
+  color: #4D1F0F;
 }
 
 .startBtn p {

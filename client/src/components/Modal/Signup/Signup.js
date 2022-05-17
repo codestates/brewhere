@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import './Signup.css'
 
 
+const axios = require('axios');
+
 export const ModalContainer = styled.div`
 // TODO : Modal을 구현하는데 전체적으로 필요한 CSS를 구현합니다.
   text-align: center;
@@ -36,7 +38,7 @@ export const ModalBtn = styled.button`
   padding: 20px;
   color: white;
   border-radius: 30px;
-  cursor: grab;
+  cursor: pointer;
 `;
 
 export const ModalView = styled.div.attrs(props => ({
@@ -65,16 +67,28 @@ export const ModalView = styled.div.attrs(props => ({
 `;
 
 function Signup () {
-  const [username, setUsername] = useState("");
+
+  const [user_name, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [user_email, setEmail] = useState("");
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+  const [validatedAll, setValidatedAll] = useState(false);
+
+  const [userinfo, setUserinfo] = useState({
+    user_email: '',
+    password: '',
+    user_name: ''
+  })
   
+  const handleInputValue = (key) => (e) => {
+    setUserinfo({ ...userinfo, [key]: e.target.value });
+  }
+
   const openModalHandler = () => {
     setModalIsOpen(!modalIsOpen);
   };
@@ -84,7 +98,7 @@ function Signup () {
     const regExp = /(?=.*\d)(?=.*[a-zA-ZS]).{8,}/
     // 형식에 맞는 경우 true 리턴
     console.log('비밀번호 유효성 검사 :: ', regExp.test(e.target.value));
-    setPassword(e.target.value)
+    setPassword(e.target.value);
     if (regExp.test(e.target.value)) { 
       setPasswordError(false);
     }
@@ -92,7 +106,7 @@ function Signup () {
 }
 
   const onChangeUsername = (e) => {
-    setUsername(e.target.value)
+    setUsername(e.target.value);
   }
 
   const onChangeEmail = (e) => {
@@ -104,27 +118,32 @@ function Signup () {
 
   const checkPasswordMatch = (e) => {
     if (e.target.value === password) setConfirmPasswordError(false)
-    else setConfirmPasswordError(true)
+    else setConfirmPasswordError(true);
     setConfirmPassword(e.target.value);
   }
 
   // const getIsActive = checkPassword && checkEmail  === true;
 
-  const handleButtomValid = () => {
-    if (validation === false) alert('조건에 맞게 모든 칸을 작성해주세요');
+  const handleButtonValid = () => {
+    validation()
+    if (!validatedAll) alert('조건에 맞게 모든 칸을 작성해주세요');
+    else onSubmit()
   }
 
   const validation = () => {
-    if(!password) setPasswordError(true);
-    if(!confirmPassword) setConfirmPasswordError(true);
-    if(!email) setEmailError(true);
-
-    if(password && confirmPassword && username && email) return true;
-    else return false;
+    // 만약, vaildate가 모두 통과되지 않았으면 false, 전부 통과하면 true
+    if (!passwordError || !confirmPasswordError || !emailError) {
+      setValidatedAll(true)
+    }
 }
 
-const onSubmit = (e) => {
-  if(validation()) return;
+const onSubmit = () => {
+  axios.post("https://localhost:8080/signup", 
+  { ...userinfo },
+  {
+    headers: { "Content-Type": "application/json" },
+    withCredentials: true,
+  })
   // TODO: Signup API Call
 }
 
@@ -154,15 +173,16 @@ const onSubmit = (e) => {
                   type="text" 
                   className='input-signup' 
                   placeholder="example@example.com" 
-                  // onBlur={  }
-                  onChange={ onChangeEmail }
+                  onBlur={ onChangeEmail }
+                  onChange={ setEmail }
                 />
                 <div className="desc">닉네임</div>
                 <input 
                   type="text" 
                   className='input-signup' 
                   placeholder="MACDUCK" 
-                  onChange={ onChangeUsername }
+                  onBlur={ onChangeUsername }
+                  onChange={ setUsername }
                 />
                 <div className="desc">비밀번호</div>
                 { passwordError ?
@@ -172,7 +192,8 @@ const onSubmit = (e) => {
                   type="text" 
                   className='input-signup'
                   placeholder="8자 이상의 영문, 숫자를 입력해주세요" 
-                  onChange={ checkPassword } 
+                  onBlur={ checkPassword }
+                  onChange={ setPassword } 
                 />
                 <div className="desc">비밀번호 확인</div>
                 { confirmPasswordError ?
@@ -187,7 +208,7 @@ const onSubmit = (e) => {
 
                 <button 
                   className="signup-btn"
-                  onClick={ handleButtomValid }
+                  onClick={ handleButtonValid }
                 >
                 Let's Brew!
                 </button>

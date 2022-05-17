@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../../Landing/img/logo_x05_square.png'
 import styled from 'styled-components';
-import SignupMoadl from '../Signup/Signup'
+import SignupModal from '../Signup/Signup'
 import './Login.css'
 
 
@@ -71,13 +71,6 @@ function Login() {
     setModalIsOpen(!modalIsOpen);
   };
 
-  // 모달 창이 열렸을 때, 스크롤 막기
-  // if (modalIsOpen) {
-  //   document.body.style.overflow = "hidden";
-  // } else {
-  //   document.body.style.overflow = "unset";
-  // }
-
   // 카카오 로그인 관련
   const CLIENT_ID = "a879c6361070a85ff535c43fddfd2bba";
   const REDIRECT_URI = "http://localhost:3000/oauth/callback/kakao";
@@ -116,7 +109,7 @@ function Login() {
                         </div>
                       </a>
                       <br />
-                      <div className="signup-text">아이디가 없으신가요? <span className="signup-link"><SignupMoadl /></span></div>
+                      <div className="signup-text">아이디가 없으신가요? <span className="signup-link"><SignupModal /></span></div>
                     </ModalView>
                   </ModalBackdrop> 
                   : null}

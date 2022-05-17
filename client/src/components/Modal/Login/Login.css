@@ -20,14 +20,11 @@
   height: 8%;
   margin: 2%;
   font-size: 20px;
-  /* text-shadow: lightgray 1px 1px; */
   text-align: center;
 }
 
 .login-area {
   text-align: center;
-  /* margin-top: 5%;
-  margin-left: 30%; */
 }
 
 .kakao_btn {
