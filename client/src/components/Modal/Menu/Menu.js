@@ -67,11 +67,11 @@ function Menu() {
   };
   // const history = useHistory('');
   // 모달 창이 열렸을 때, 스크롤 막기
-  if (modalIsOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "unset";
-  }
+  // if (modalIsOpen) {
+  //   document.body.style.overflow = "hidden";
+  // } else {
+  //   document.body.style.overflow = "unset";
+  // }
 
   return (
     <>
