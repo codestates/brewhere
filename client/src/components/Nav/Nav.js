@@ -18,11 +18,13 @@ return (
           </NavLink>
         </div>
 
-        <div className='search'>
+        {/* <div className='search'>
           <input className='search-bar' type='text' placeholder='여기서 브루어리를 검색하세요'></input>
           <NavLink to='/map' className='nav-links search-button'>검색</NavLink>
-          {/* //TODO: 검색 버튼 대신에 fontawesome을 이용해서 돋보기 이미지 넣기 */}
-        </div>
+           //TODO: 검색 버튼 대신에 fontawesome을 이용해서 돋보기 이미지 넣기 
+          
+        </div> */}
+         
         
         <div className='nav-button'>
           <div className='nav-links login'>
