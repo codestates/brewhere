@@ -1,17 +1,37 @@
+a:link {
+  color : pink;
+  text-decoration: none;
+}
+a:visited {
+  color : black;
+  text-decoration: none;
+}
+a:hover {
+  color : rgb(95, 62, 16);
+  text-decoration: underline;
+}
+a:active {
+  color : green;
+  text-decoration: none;
+}
+
+
 .ft-third {
-  width: 1440px;
+  width: 100%;
   margin-top: 200px;
-  margin-bottom: 200px;
+  /* margin-bottom: 200px; */
+  background-color: rgb(223, 223, 223);
 }
 
 .team-macduck {
-  width: 1296px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .ft-title {
+  color: #000000;
   text-align: center;
-  padding: 40px 0;
+  padding: 60px 0;
   font-size: 40px;
   font-weight: bold;
 }
@@ -45,5 +65,18 @@
 
 .ft-name {
   font-weight: bold;
-  margin: 5px;
+  margin: 3%;
+}
+
+.ft-position {
+  margin-bottom: 50px;
+}
+
+.ft-git {
+  width: 100px;
+  height: 150px;
+}
+
+.gh-link {
+  color: rgb(0, 0, 0);
 }
