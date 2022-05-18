@@ -10,23 +10,26 @@ const {
 } = require('../../controllers/tokenFunctions');
 
 module.exports = async (req, res) => {
-  const { user_email, password } = req.body;
+  const { email, password } = req.body;
 
+    console.log(req.body)
   try {
     const userInfo = await user.findOne({
-      where: {user_email: user_email, password: password}
+      where: {useremail : email}
     });
+    console.log(userInfo)
     if(!userInfo) {
       return res.status(401).json({message: '이메일 혹은 비밀번호를 확인해주세요'})
       } else {
         delete userInfo.dataValues.password;
         const accessToken = generateAccessToken(userInfo.dataValues);
         const refreshToken = generateRefreshToken(userInfo.dataValues);
+        res.cookie('access_token', accessToken)
         sendAccessToken(res, accessToken);
         sendRefreshToken(res, refreshToken);
         return res.status(200).json({message: '로그인에 성공하였습니다'});
       }
     } catch(err) {
-    return res.status(401).json({ message: '이메일 혹은 비밀번호를 확인해주세요' });
+      console.error(err);
   }
 };

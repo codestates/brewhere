@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   user.init({
-    user_name: DataTypes.STRING,
-    user_email: DataTypes.STRING,
+    username: DataTypes.STRING,
+    useremail: DataTypes.STRING,
     password: {
      type: DataTypes.STRING,
-     defaultValue: ''
+    //  defaultValue: ''
     },
     kakao_id: DataTypes.STRING,
     kakao_oauth_token: DataTypes.STRING
