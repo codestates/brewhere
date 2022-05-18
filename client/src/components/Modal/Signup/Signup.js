@@ -37,7 +37,7 @@ export const ModalBtn = styled.button`
 
 export const ModalView = styled.div.attrs((props) => ({
   // attrs 메소드를 이용해서 아래와 같이 div 엘리먼트에 속성을 추가할 수 있습니다.
-  role: "dialog",
+  role: "dialog"
 }))`
   display: flex;
   flex-direction: column;
@@ -128,7 +128,7 @@ function Signup() {
     console.log({ ...userinfo });
     axios
       .post(
-        "http://localhost:8080/signup",
+        "http://localhost:8080/users/signup",
         { ...userinfo },
         {
           headers: { "Content-Type": "application/json" },
@@ -136,7 +136,8 @@ function Signup() {
           // "rejectUnauthorized": false
         }
       )
-      .then(() => navigate("/"));
+      .then((res) => console.log(res))
+      .then(navigate("/"));
     // TODO: Signup API Call
   };
 
