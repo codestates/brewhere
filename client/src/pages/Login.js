@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import logo from "../../Landing/img/logo_x05_square.png";
+import logo from "../components/Landing/img/logo_x05_square.png";
 import styled from "styled-components";
-import SignupModal from "../Signup/Signup";
+import SignupModal from "../components/Modal/Signup/Signup";
 
 import "./Login.css";
 
@@ -57,25 +57,7 @@ function Login() {
     email: '',
     password: ''
   });
-  const [userinfo, setUserinfo] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
-  const [isLogin, setIsLogin] = useState(false);
-  
-  const isAuthenticated = () => {
-    axios.get(
-      'http://localhost:8080/users/login',
-      {
-        withCredentials: true
-      })
-      .then((res) => {
-        setIsLogin(true);
-        setUserinfo(res);
-      })
-    }
-  
-    const handleResponseSuccess = () => {
-      isAuthenticated();
-    };
 
   const handleInputValue = (key) => (e) => {
     setLoginInfo({ ...loginInfo, [key]: e.target.value });
@@ -109,16 +91,14 @@ function Login() {
         const { accessToken } = res.data;
         axios.default.headers.common['Authorization'] = `Bearer ${accessToken}`;
         
-        handleResponseSuccess()
+        // handleResponseSuccess()
       })
     }
 
   return (
     <>
       <ModalContainer onClick={openModalHandler}>
-      {isLogin ? <button>로그아웃</button> : 
-      <ModalBtn onClick={openModalHandler}>로그인</ModalBtn>}
-        
+        <ModalBtn onClick={openModalHandler}>로그인</ModalBtn>
 
         {modalIsOpen ? (
           <ModalBackdrop onClick={openModalHandler}>
