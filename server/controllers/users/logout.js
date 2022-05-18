@@ -1,3 +1,4 @@
+// 로그아웃 자체가 안됨
 const checkTokens = require('../auth');
 
 module.exports = (req, res) => {

@@ -5,10 +5,9 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const path = require('path');
 
-const controllers = require("./controllers");
 const usersRouter = require('./router/usersRouter.js');
-const breweryRouter = require('./router/breweryRouter.js');
-const mypageRouter = require('./router/mypageRouter.js');
+// const breweryRouter = require('./router/breweryRouter.js');
+// const mypageRouter = require('./router/mypageRouter.js');
 
 const { sequelize } = require('./models');
 //데이터 베이스 연결을 위해 추가
@@ -21,7 +20,8 @@ app.use(
     allowedHeaders: ['Content-Type', 'authorization'],
   })
 );
-
+// 라우터 분기 잘하기
+// 포스트맨 테스트해보기
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
@@ -41,17 +41,9 @@ sequelize.sync({ force: false })
 })
 //데이터베이스 연결 위해 추가
 
-app.post("/signup", controllers.signup);
-app.post("/login", controllers.login);
-app.post("/username", controllers.username);
-app.get("/logout", controllers.logout);
-app.get("/mypage", controllers.mypage);
-app.patch("/password", controllers.password);
-app.delete("/withdrawal", controllers.withdrawal);
-
 app.use('/users', usersRouter);
-app.use('/:breweryid', breweryRouter);
-app.use('/mypage', mypageRouter);
+// app.use('/:breweryid', breweryRouter);
+// app.use('/mypage', mypageRouter);
 
 let port = 8080;
 //포트 겹치지 않기 위해 임시 변경 
