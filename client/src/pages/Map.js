@@ -1,57 +1,79 @@
 /*global kakao*/
 import React, { useEffect } from "react";
+import styled from "styled-components";
 import { dummydata } from "./mapdata";
+import marker_yellow from "./images/marker_yellow.png";
+import marker_red from "./images/marker_red.png";
 
 const Location = () => {
   useEffect(() => {
-    const mapContainer = document.getElementById("map"), // 지도를 표시할 div
+    const mapContainer = document.getElementById("map"),
       mapOption = {
-        center: new kakao.maps.LatLng(37.52406330545825, 126.98054529969014), // 지도의 중심좌표
-        level: 7, // 지도의 확대 레벨
+        center: new kakao.maps.LatLng(37.52406330545825, 126.98054529969014),
+        level: 7,
       };
 
-    const map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-    // 마커를 표시할 위치와 title 객체 배열입니다
+    const map = new kakao.maps.Map(mapContainer, mapOption);
     const positions = dummydata;
-
-    // 마커 이미지의 이미지 주소입니다
-    const imageSrc =
-      "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+    const imageSrc = marker_yellow;
 
     for (let i = 0; i < positions.length; i++) {
-      // 마커 이미지의 이미지 크기 입니다
       const imageSize = new kakao.maps.Size(24, 35);
-
-      // 마커 이미지를 생성합니다
       const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
-      // 마커를 생성합니다
       const marker = new kakao.maps.Marker({
-        map: map, // 마커를 표시할 지도
-        position: positions[i].latlng, // 마커를 표시할 위치
-        title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-        image: markerImage, // 마커 이미지
+        map: map,
+        position: new kakao.maps.LatLng(positions[i].lat, positions[i].lng),
+        title: positions[i].title,
+        image: markerImage,
         clickable: true,
       });
       // 마커를 지도에 표시합니다.
       marker.setMap(map);
 
-      // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-      const iwContent = `<div class="infoName" style="padding:5px;">${positions[i].title}</div>`,
-        // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-        iwRemoveable = true; // removeable 속성을 true 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+      //! 마우스로 클릭했을 때 정보창 표시
 
-      // 인포윈도우를 생성합니다
+      const iwContent = `
+        <div style="width: 200px;">
+          <div class="infoBox">
+            <div class="iwTitle">${positions[i].title}</div>
+            <div class="brewAddress">${positions[i].address}</div>
+            <div class="contactNum">${positions[i].contacts}</div>
+            <img style="width:100px; height:100px;" src=${positions[i].img}>
+            <div class="brewMenu">${positions[i].menu}</div>
+            <div class="tags">${positions[i].tags}</div>
+          </div>          
+        </div>`;
+      const iwRemoveable = true;
       const infowindow = new kakao.maps.InfoWindow({
         content: iwContent,
         removable: iwRemoveable,
       });
-
-      // 마커에 클릭이벤트를 등록합니다
       kakao.maps.event.addListener(marker, "click", function () {
-        // 마커 위에 인포윈도우를 표시합니다
         infowindow.open(map, marker);
+      });
+      kakao.maps.event.addListener(marker, "mouseleave", function () {
+        infowindow.close();
+      });
+
+      //! 마우스를 올렸을 때 상점이름만 미리보기 및 해당 핀 이미지 전환 (핀 이미지 전환에 대한 useState 사용 해야됨)
+
+      const moContent = `<div style="padding:5px;">${positions[i].title}</div>`;
+
+      const markerImageOvered = marker_red;
+
+      const moInfo = new kakao.maps.InfoWindow({
+        content: moContent,
+      });
+
+      kakao.maps.event.addListener(marker, "mouseover", function () {
+        // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+        moInfo.open(map, marker);
+      });
+      // 마커에 마우스아웃 이벤트를 등록합니다
+      kakao.maps.event.addListener(marker, "mouseout", function () {
+        // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
+        moInfo.close();
       });
     }
   }, []);
