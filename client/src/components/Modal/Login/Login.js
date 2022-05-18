@@ -98,7 +98,7 @@ function Login() {
       return;
     }
     axios.post(
-      "http://localhost:8080/users/signin",
+      "http://localhost:8080/users/login",
       { email, password },
       {
         headers: { 'Content-Type': 'application/json'},
@@ -108,15 +108,21 @@ function Login() {
         console.log(res)
         const { accessToken } = res.data;
         axios.default.headers.common['Authorization'] = `Bearer ${accessToken}`;
-        
         handleResponseSuccess()
       })
     }
 
+    const handleLogout = () => {
+      axios.post('https://localhost:8080/users/signout').then((res) => {
+        setUserinfo(null);
+        setIsLogin(false);
+      })
+    };
+
   return (
     <>
       <ModalContainer onClick={openModalHandler}>
-      {isLogin ? <button>로그아웃</button> : 
+      {isLogin ? <button onClick={handleLogout}>로그아웃</button> : 
       <ModalBtn onClick={openModalHandler}>로그인</ModalBtn>}
         
 
