@@ -1,18 +1,17 @@
 import React, { useState, useHistory } from "react";
 import styled from "styled-components";
+import bars from "./../../Nav/img/bars.png";
 
 export const ModalContainer = styled.div`
-  // TODO : Modal을 구현하는데 전체적으로 필요한 CSS를 구현합니다.
   text-align: center;
   width: 100%;
   height: 100%;
 `;
 
 export const ModalBackdrop = styled.div`
-  // TODO : Modal이 떴을 때의 배경을 깔아주는 CSS를 구현합니다.
   position: fixed;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -21,17 +20,17 @@ export const ModalBackdrop = styled.div`
   right: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgba(0, 0, 0, 0.3);
   z-index: 999; // 레이어의 맨 위에 모달 창이 나와야 하므로 가장 큰 수(999)로 설정
 `;
 
 export const ModalBtn = styled.button`
-  background-color: #4000c7;
+  > img {
+    width: 40px;
+    height: 40px;
+  }
   text-decoration: none;
   border: none;
   padding: 20px;
-  color: white;
-  border-radius: 30px;
   cursor: grab;
 `;
 
@@ -41,22 +40,27 @@ export const ModalView = styled.div.attrs((props) => ({
 }))`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  width: 1000px;
-  height: 100px;
-  border-radius: 1rem;
+  align-items: flex-end;
+  background-color: rgba(44, 31, 15, 0.9);
+  color: #fff;
+  width: 20rem;
+  height: 100vh;
   position: relative;
+  padding: 2rem 1rem 0 0;
   > div.close-btn {
     position: absolute;
     top: 2px;
-    right: 7px;
-    cursor: pointer; // 마우스포인터를 위에 올리면 커서가 손 모양으로 변하게
-    > div.desc {
-      color: violet;
-      margin-top: 25px;
-    }
+    left: 7px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 4rem;
+  }
+  > div.desc {
+    font-family: "Roboto";
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 2rem 2rem 0 0;
+    padding: 0.5rem;
   }
 `;
 
@@ -77,8 +81,7 @@ function Menu() {
     <>
       <ModalContainer onClick={openModalHandler}>
         <ModalBtn onClick={openModalHandler}>
-          {/* 로그인 여부에 따른 로그인/로그아웃 교차 표출 필요 */}
-          MENU
+          <img src={bars} />
         </ModalBtn>
 
         {modalIsOpen ? (

@@ -1,60 +1,49 @@
-button {
-  text-align: center;
-  color: inherit;
-  border: none;
-  background: none;
-}
-
 .modal-signup {
   margin: auto;
-  
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+  font-size: 3rem;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  cursor: pointer;
+  color: #000
 }
 
 .modal-signup-logo {
   width: 30%;
-  height: auto;
-  /* margin-left: 40%; */
-}
-
-.close-btn {
-  width: 1.5%;
-  height: auto;
-  text-align: center;
-}
-
-.validate-text {
-  font-size: 12px;
-  margin: 0.5%;
+  margin-top: 1rem;
 }
 
 .input-signup {
-  width: 60%;
-  height: 8%;
-  margin: 2%;
-  font-size: 18px;
-  /* text-shadow: lightgray 1px 1px; */
+  width: 50%;
+  height: 6%;
+  margin-bottom: 3%;
+  font-size: 16px;
   text-align: center;
+  font-family: 'Roboto';
 }
 
-.input-signup-check {
-  width: 60%;
-  height: 8%;
-  margin: 2%;
-  font-size: 18px;
-  /* text-shadow: lightgray 1px 1px; */
-  text-align: center;
+.input-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
 }
 
-.clickedInputLine {
-  margin: 20px 0 30px 0;
-  width: 350px;
-  border-bottom: 2px solid #adc088;
+.validate-text {
+  font-size: 1rem;
+  font-family: 'Noto Sans KR';
+  margin-top: .5rem;
 }
 
-.signup-area {
-  text-align: center;
+.signup-btn {
+  width: 10rem;
+  padding: 0.5rem;
+  background: #DF9632;
+  color: #fff;
+  border-radius: 10px;
 }
-
-/* .signup-btn {
-  
-} */
