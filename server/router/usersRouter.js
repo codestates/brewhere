@@ -13,7 +13,8 @@ router.post('/signup', signupController);
 router.post('/login', loginController);
 router.get('/logout', logoutController);
 router.post('/email', emailCheckController);
-router.patch('/username', usernameController);
+router.post('/username', usernameController.post);
+router.patch('/username', usernameController.patch);
 router.patch('/password', passwordController);
 router.delete('/withdrawal', withdrawalController);
 

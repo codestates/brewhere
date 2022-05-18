@@ -80,7 +80,7 @@ function Login() {
       return;
     }
     axios.post(
-      "http://localhost:8080/users/signin",
+      "http://localhost:8080/users/login",
       { email, password },
       {
         headers: { 'Content-Type': 'application/json'},
