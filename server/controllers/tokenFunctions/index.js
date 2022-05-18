@@ -17,7 +17,7 @@ module.exports = {
       sameSite: 'none',
       httpOnly: 'true',
       secure: 'true'
-    }).json({ accessToken: accessToken, message: '로그인 되었습니다' });
+    })
   },
 
   sendRefreshToken: (res, refreshToken) => {

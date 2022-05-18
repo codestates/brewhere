@@ -8,8 +8,8 @@ module.exports = {
       'user',
       [
         {
-          user_name: 'kimcoding',
-          user_email: 'kimcoding@coding.com',
+          username: 'kimcoding',
+          useremail: 'kimcoding@coding.com',
           password: 'a12341234',
           createdAt,
           updatedAt,
