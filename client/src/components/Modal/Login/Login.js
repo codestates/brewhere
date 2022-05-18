@@ -27,7 +27,7 @@ export const ModalBackdrop = styled.div`
   bottom: 0;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 999; // 레이어의 맨 위에 모달 창이 나와야 하므로 가장 큰 수(999)로 설정
+  z-index: 999; 
 `;
 
 export const ModalBtn = styled.button`
@@ -109,12 +109,10 @@ function Login() {
         withCredentials: true,
       })
       .then((res) => {
-        
-        // const { accessToken } = res.data;
-        // axios.default.headers.common['Authorization'] = `Bearer ${accessToken}`;
         handleResponseSuccess()
+        openModalHandler()
+        navigate("/")
       })
-      .then(navigate("/"));
     }
 
     const handleLogout = () => {
@@ -127,7 +125,7 @@ function Login() {
   return (
     <>
       <ModalContainer onClick={openModalHandler}>
-      {isLogin ? <button onClick={handleLogout}>로그아웃</button> : 
+      {isLogin ? <ModalBtn onClick={handleLogout}>로그아웃</ModalBtn> : 
       <ModalBtn onClick={openModalHandler}>로그인</ModalBtn>}
         
 
