@@ -1,18 +1,34 @@
 let express = require('express'); 
 let app = express(); 
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
+const path = require('path');
+
 const controllers = require("./controllers");
 const usersRouter = require('./router/usersRouter.js');
 const breweryRouter = require('./router/breweryRouter.js');
 const mypageRouter = require('./router/mypageRouter.js');
 
-const morgan = require('morgan');
-const path = require('path');
-
 const { sequelize } = require('./models');
 //데이터 베이스 연결을 위해 추가
 
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'authorization'],
+  })
+);
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+app.use(cookieParser());
 
 app.get('/', function(req, res) { 
+  res.header("Access-Control-Allow-Origin", "*");
   res.send('Hello World!'); 
 });
 
