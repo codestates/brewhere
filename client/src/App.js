@@ -1,9 +1,9 @@
+
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import Nav from './components/Nav/Nav'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import Like from './pages/Like'
 import Map from './pages/Map'
 import Mypage from './pages/Mypage'
 import Store from './pages/Store'
@@ -32,7 +32,7 @@ function App() {
   // useEffect(() => {
   //   isAuthenticated();
   // }, []);
-
+  
   return (
     <div>
       <BrowserRouter>

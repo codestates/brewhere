@@ -8,6 +8,7 @@
 .fs-title {
   font-size: 40px;
   font-weight: bold;
+  font-family: 'Roboto';
 }
 
 .fs-title:after {
