@@ -54,15 +54,15 @@ function Signup() {
   const navigate = useNavigate();
 
   const [userinfo, setUserinfo] = useState({
-    user_name: "",
-    user_email: "",
+    username: "",
+    useremail: "",
     password: "",
   });
 
-  const [user_name, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [user_email, setEmail] = useState("");
+  const [useremail, setEmail] = useState("");
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -176,7 +176,7 @@ function Signup() {
                 className="input-signup"
                 placeholder="example@gmail.com"
                 onBlur={onChangeEmail}
-                onChange={handleInputValue("user_email")}
+                onChange={handleInputValue("useremail")}
               />
               <div className="desc input-title">닉네임</div>
               <input
@@ -184,7 +184,7 @@ function Signup() {
                 className="input-signup"
                 placeholder="MACDUCK"
                 onBlur={onChangeUsername}
-                onChange={handleInputValue("user_name")}
+                onChange={handleInputValue("username")}
               />
               <div className="desc input-title">비밀번호</div>
               {passwordError ? (
