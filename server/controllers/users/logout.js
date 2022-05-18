@@ -1,20 +1,3 @@
-// 로그아웃 자체가 안됨
-const checkTokens = require('../auth');
-
 module.exports = (req, res) => {
-  const userInfo = checkTokens(req);
-
-  if(!userInfo) {
-    res.status(401).json({message: '로그인이 필요합니다'})
-  } else {
-    try {
-      return res.clearCookie('refreshToken', {
-        httpOnly: 'true',
-        sameSite: 'none',
-        secure: 'true'
-      }).status(200).json({message: '로그아웃 되었습니다'});
-    } catch(err) {
-      res.status(400).json({message: '잘못된 요청입니다'});
-    }
-  }
+  return res.status(205).json({message: "로그아웃이 완료되었습니다"});
 }

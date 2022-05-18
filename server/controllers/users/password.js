@@ -24,7 +24,7 @@ module.exports = async(req, res) => {
     // 나중에 수정할 사항1
     bcrypt.compare(req.body.password, hash, function(err, result) {
       try {
-        res.status(200).json({data: result});
+        res.status(200).json({data: result, message: '비밀번호가 수정되었습니다'});
       } catch(err) {
         res.status(400).json({message: '잘못된 요청입니다'});
       }
