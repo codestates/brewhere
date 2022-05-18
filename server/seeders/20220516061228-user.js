@@ -10,7 +10,7 @@ module.exports = {
         {
           user_name: 'kimcoding',
           user_email: 'kimcoding@coding.com',
-          password: '1234',
+          password: 'a12341234',
           createdAt,
           updatedAt,
         },

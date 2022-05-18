@@ -1,3 +1,5 @@
+// 로그인은 정상적으로 되는데 에러가 뜸.
+// Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
 const { user } = require('../../models');
 
 const {
@@ -22,6 +24,6 @@ module.exports = async (req, res) => {
     const refreshToken = generateRefreshToken(userInfo.dataValues);
     sendAccessToken(res, accessToken);
     sendRefreshToken(res, refreshToken);
-    res.status(200).json({message: '로그인에 성공하였습니다'});
+    return res.status(200).json({message: '로그인에 성공하였습니다'});
   }
 }

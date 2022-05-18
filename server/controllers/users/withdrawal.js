@@ -8,7 +8,7 @@ module.exports = async(req, res) => {
   } else {
     try {
       await user.destroy({
-        where: {username: userInfo.username}
+        where: {user_name: userInfo.user_name}
       })
       return res.clearCookie('refreshToken', {
         httpOnly: 'true',

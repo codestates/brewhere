@@ -128,7 +128,7 @@ function Signup() {
     console.log({ ...userinfo });
     axios
       .post(
-        "http://localhost:8080/signup",
+        "http://localhost:8080/users/signup",
         { ...userinfo },
         {
           headers: { "Content-Type": "application/json" },

@@ -1,3 +1,4 @@
+// 포스트맨 응답 결과 원래 닉네임과 다른 닉네임으로 수정하여 send해도 409가 뜸.
 const { user } = require('../../models');
 
 module.exports = async(req, res) => {

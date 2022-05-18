@@ -11,7 +11,13 @@ module.exports = {
   },
 
   sendAccessToken: (res, accessToken) => {
-    res.json({ accessToken: accessToken, message: '로그인 되었습니다' });
+    res.cookie('accessToken', accessToken, {
+      domain: 'localhost',
+      path: '/',
+      sameSite: 'none',
+      httpOnly: 'true',
+      secure: 'true'
+    }).json({ accessToken: accessToken, message: '로그인 되었습니다' });
   },
 
   sendRefreshToken: (res, refreshToken) => {
