@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
+import {useNavigate} from "react-router-dom"
 import logo from "../../Landing/img/logo_x05_square.png";
 import styled from "styled-components";
 import SignupModal from "../Signup/Signup";
@@ -61,20 +62,20 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState('');
   const [isLogin, setIsLogin] = useState(false);
   
-  const isAuthenticated = () => {
-    axios.get(
-      'http://localhost:8080/users/login',
-      {
-        withCredentials: true
-      })
-      .then((res) => {
-        setIsLogin(true);
-        setUserinfo(res);
-      })
-    }
+  // const isAuthenticated = () => {
+  //   axios.get(
+  //     'http://localhost:8080/users/login',
+  //     {
+  //       withCredentials: true
+  //     })
+  //     .then((res) => {
+  //       setIsLogin(true);
+  //       setUserinfo(res);
+  //     })
+  //   }
   
     const handleResponseSuccess = () => {
-      isAuthenticated();
+      // isAuthenticated();
     };
 
   const handleInputValue = (key) => (e) => {
@@ -91,12 +92,15 @@ function Login() {
   const REDIRECT_URI = "http://localhost:3000/oauth/callback/kakao";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
+  const navigate = useNavigate();
+
   const onClickSubmit = () => {
     const { email, password } = loginInfo;
     if (!email || !password) {
       setErrorMessage('이메일과 비밀번호를 확인하세요')
       return;
     }
+    console.log({email, password})
     axios.post(
       "http://localhost:8080/users/login",
       { email, password },
@@ -105,15 +109,16 @@ function Login() {
         withCredentials: true,
       })
       .then((res) => {
-        console.log(res)
-        const { accessToken } = res.data;
-        axios.default.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        
+        // const { accessToken } = res.data;
+        // axios.default.headers.common['Authorization'] = `Bearer ${accessToken}`;
         handleResponseSuccess()
       })
+      .then(navigate("/"));
     }
 
     const handleLogout = () => {
-      axios.post('https://localhost:8080/users/signout').then((res) => {
+      axios.post('https://localhost:8080/users/logout').then((res) => {
         setUserinfo(null);
         setIsLogin(false);
       })
@@ -157,6 +162,7 @@ function Login() {
               <div>{errorMessage}</div>
               <button 
                 className="desc login-btn"
+                type="submit"
                 onClick={onClickSubmit}
               >
                 로그인
