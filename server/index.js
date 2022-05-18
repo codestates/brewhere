@@ -10,7 +10,6 @@ const usersRouter = require('./router/usersRouter.js');
 // const mypageRouter = require('./router/mypageRouter.js');
 
 const { sequelize } = require('./models');
-//데이터 베이스 연결을 위해 추가
 
 app.use(
   cors({
@@ -20,8 +19,7 @@ app.use(
     allowedHeaders: ['Content-Type', 'authorization'],
   })
 );
-// 라우터 분기 잘하기
-// 포스트맨 테스트해보기
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));

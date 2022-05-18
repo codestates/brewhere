@@ -1,4 +1,4 @@
-import React, { useState, useHistory } from "react";
+import React, { useState, } from "react";
 import styled from "styled-components";
 import bars from "./../../Nav/img/bars.png";
 
@@ -20,7 +20,7 @@ export const ModalBackdrop = styled.div`
   right: 0;
   bottom: 0;
   margin: auto;
-  z-index: 999; // 레이어의 맨 위에 모달 창이 나와야 하므로 가장 큰 수(999)로 설정
+  z-index: 999;
 `;
 
 export const ModalBtn = styled.button`
@@ -35,7 +35,6 @@ export const ModalBtn = styled.button`
 `;
 
 export const ModalView = styled.div.attrs((props) => ({
-  // attrs 메소드를 이용해서 아래와 같이 div 엘리먼트에 속성을 추가할 수 있습니다.
   role: "dialog",
 }))`
   display: flex;

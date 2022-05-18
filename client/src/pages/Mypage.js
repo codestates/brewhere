@@ -1,33 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { } from "react";
 
-const Mypage = () => {
-  const [user_id, setUserId] = useState();
-  const [nickName, setNickName] = useState();
-  const [profileImage, setProfileImage] = useState();
-  const getProfile = async () => {
-    try {
-      // Kakao SDK API를 이용해 사용자 정보 획득
-      let data = await window.Kakao.API.request({
-        url: "/v2/user/me",
-      });
-      // 사용자 정보 변수에 저장
-      console.log(data)
-      setUserId(data.id);
-      setNickName(data.properties.nickname);
-      setProfileImage(data.properties.profile_image);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => {
-    getProfile();
-  }, []);
+const Mypage = (props) => {
+  const hasUserinfo = props.userinfo === undefined
   return (
     <div>
-      <h2>{user_id}</h2>
-      <h2>{nickName}</h2>
-      <img src={profileImage}></img>
+      <center>
+        <h1>{hasUserinfo ? '' : 'Mypage'}</h1>
+        <div className='username'>{hasUserinfo ? '' : props.userinfo.username}</div>
+        <div className='email'>{hasUserinfo ? '' : props.userinfo.email}</div>
+        <div className='mobile'>{hasUserinfo ? '' : props.userinfo.mobile}</div>
+        <button className='btn btn-logout' onClick={hasUserinfo ? '' : props.handleLogout}>
+          {hasUserinfo ? '' : 'logout'}
+        </button>
+      </center>
     </div>
+
   );
 };
 export default Mypage;
