@@ -4,7 +4,6 @@ const { generateAccessToken } = require('../../controllers/tokenFunctions');
 module.exports = async(req, res) => {
   const {username, useremail, password} = req.body;
   // 세분화
-  console.log(req.body)
   if(!username || !useremail || !password) {
     res.status(400).json({message: '모든 항목은 필수입니다'})
   } else {

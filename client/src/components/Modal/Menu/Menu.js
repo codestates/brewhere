@@ -1,6 +1,7 @@
 import React, { useState, } from "react";
 import styled from "styled-components";
 import bars from "./../../Nav/img/bars.png";
+import { NavLink } from "react-router-dom";
 
 export const ModalContainer = styled.div`
   text-align: center;
@@ -61,6 +62,14 @@ export const ModalView = styled.div.attrs((props) => ({
     margin: 2rem 2rem 0 0;
     padding: 0.5rem;
   }
+  > a.desc {
+    font-family: "Roboto";
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 2rem 2rem 0 0;
+    padding: 0.5rem;
+    color: #fff;
+  }
 `;
 
 function Menu() {
@@ -94,7 +103,11 @@ function Menu() {
                 &times;
               </div>
               <div className="desc">MENU</div>
-              <div className="desc">마이페이지</div>
+              
+              <NavLink to="/mypage/mypage" className="desc">
+                <div>마이페이지</div>
+              </NavLink>
+
               <div className="desc">브루어리 찾기</div>
               <div className="desc">찜한 목록</div>
             </ModalView>
