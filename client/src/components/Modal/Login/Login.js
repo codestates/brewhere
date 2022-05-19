@@ -1,5 +1,5 @@
-import React, { useState, } from "react";
-import {useNavigate} from "react-router-dom"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../Landing/img/logo_x05_square.png";
 import styled from "styled-components";
 import SignupModal from "../Signup/Signup";
@@ -27,7 +27,7 @@ export const ModalBackdrop = styled.div`
   bottom: 0;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 999; 
+  z-index: 999;
 `;
 
 export const ModalBtn = styled.button`
@@ -55,13 +55,14 @@ export const ModalView = styled.div.attrs((props) => ({
 function Login() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
   const [userinfo, setUserinfo] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const [isLogin, setIsLogin] = useState(false);
 
+<<<<<<< HEAD
   const loginInfos = (loginInfo) => {
     return loginInfo
   }
@@ -72,22 +73,30 @@ function Login() {
       {
         withCredentials: true
       })
+=======
+  const isAuthenticated = () => {
+    axios
+      .get(
+        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/auth",
+        {
+          withCredentials: true,
+        }
+      )
+>>>>>>> fc64cb463d4b358aa5bd68bbced3d7d30d901e22
       .then((res) => {
-        console.log(res)
         setIsLogin(true);
         setUserinfo(res);
-      })
-    }
-  
-    const handleResponseSuccess = () => {
-      setIsLogin(true);
-      isAuthenticated();
-    };
+      });
+  };
+
+  const handleResponseSuccess = () => {
+    setIsLogin(true);
+    isAuthenticated();
+  };
 
   const handleInputValue = (key) => (e) => {
     setLoginInfo({ ...loginInfo, [key]: e.target.value });
   };
-
 
   const openModalHandler = () => {
     setModalIsOpen(!modalIsOpen);
@@ -95,7 +104,12 @@ function Login() {
 
   // 카카오 로그인 관련
   const CLIENT_ID = "a879c6361070a85ff535c43fddfd2bba";
+<<<<<<< HEAD
   const REDIRECT_URI = "http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/oauth/callback/kakao";
+=======
+  const REDIRECT_URI =
+    "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/oauth/callback/kakao";
+>>>>>>> fc64cb463d4b358aa5bd68bbced3d7d30d901e22
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const navigate = useNavigate();
@@ -103,9 +117,10 @@ function Login() {
   const onClickSubmit = () => {
     const { email, password } = loginInfo;
     if (!email || !password) {
-      setErrorMessage('이메일과 비밀번호를 확인하세요')
+      setErrorMessage("이메일과 비밀번호를 확인하세요");
       return;
     }
+<<<<<<< HEAD
 
     axios.post(
       "http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/users/login",
@@ -114,17 +129,26 @@ function Login() {
         headers: { 'Content-Type': 'application/json'},
         withCredentials: true,
       })
+=======
+    axios
+      .post(
+        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/login",
+        { email, password },
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      )
+>>>>>>> fc64cb463d4b358aa5bd68bbced3d7d30d901e22
       .then((res) => {
         handleResponseSuccess();
         openModalHandler();
         navigate("/");
         setUserinfo(email, password);
-        console.log(res);
-        console.log({...loginInfo});
-        console.log({...userinfo});
-      })
-    }
+      });
+  };
 
+<<<<<<< HEAD
     const handleLogout = () => {
       axios.get(
         'http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/users/logout', 
@@ -133,71 +157,88 @@ function Login() {
         withCredentials: true,
       }
       ).then((res) => {
+=======
+  const handleLogout = () => {
+    axios
+      .get(
+        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/logout",
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+>>>>>>> fc64cb463d4b358aa5bd68bbced3d7d30d901e22
         setUserinfo(null);
         setIsLogin(false);
-        navigate('/');
-        alert('로그아웃 되었습니다.');
+        navigate("/");
+        alert("로그아웃 되었습니다.");
       })
-      .catch(err => {
-        alert('잘못된 요청입니다');
+      .catch((err) => {
+        alert("잘못된 요청입니다");
         console.log(err);
       });
-    };
+  };
 
   return (
     <>
-      {isLogin ? <button onClick={handleLogout}>로그아웃</button> : 
-      <ModalBtn onClick={openModalHandler}>로그인</ModalBtn>}
-        
-        {modalIsOpen ? (
-          <ModalBackdrop onClick={openModalHandler}>
-            <ModalView
-              onClick={(event) => {
-                event.stopPropagation();
-              }}
-            >
-              <div className="close-btn" onClick={openModalHandler}>
-                &times;
-              </div>
+      {isLogin ? (
+        <button onClick={handleLogout}>로그아웃</button>
+      ) : (
+        <ModalBtn onClick={openModalHandler}>로그인</ModalBtn>
+      )}
 
-              <div className="desc">
-                <img src={logo} alt="logo" className="modal-login-logo" />
-              </div>
-              <div className="desc input-title">이메일</div>
-              <input
-                type="text"
-                className="input-login"
-                placeholder="example@kakao.com"
-                onChange={handleInputValue('email')}
-              />
-              <div className="desc input-title">비밀번호</div>
-              <input
-                type="password"
-                className="input-login"
-                placeholder="비밀번호를 입력해주세요"
-                onChange={handleInputValue('password')}
-              />
-              <div>{errorMessage}</div>
-              <button 
-                className="desc login-btn"
-                type="submit"
-                onClick={onClickSubmit}
-              >
-                로그인
-              </button>
-              <a href={KAKAO_AUTH_URL}>
-                <div className="kakao_btn"></div>
-              </a>
-              <br />
-              <div className="signup-text">
-                아이디가 없으신가요 ?
-                <span className="signup-link">
-                  <SignupModal />
-                </span>
-              </div>
-            </ModalView>
-          </ModalBackdrop>
-        ) : null}
+      {modalIsOpen ? (
+        <ModalBackdrop onClick={openModalHandler}>
+          <ModalView
+            onClick={(event) => {
+              event.stopPropagation();
+            }}
+          >
+            <div className="close-btn" onClick={openModalHandler}>
+              &times;
+            </div>
+
+            <div className="desc">
+              <img src={logo} alt="logo" className="modal-login-logo" />
+            </div>
+            <div className="desc input-title">이메일</div>
+            <input
+              type="text"
+              className="input-login"
+              placeholder="example@kakao.com"
+              onChange={handleInputValue("email")}
+            />
+            <div className="desc input-title">비밀번호</div>
+            <input
+              type="password"
+              className="input-login"
+              placeholder="비밀번호를 입력해주세요"
+              onChange={handleInputValue("password")}
+            />
+            <div>{errorMessage}</div>
+            <button
+              className="desc login-btn"
+              type="submit"
+              onClick={onClickSubmit}
+            >
+              로그인
+            </button>
+            <a href={KAKAO_AUTH_URL}>
+              <div className="kakao_btn"></div>
+            </a>
+            <br />
+            <div className="signup-text">
+              아이디가 없으신가요 ?
+              <span className="signup-link">
+                <SignupModal />
+              </span>
+            </div>
+          </ModalView>
+        </ModalBackdrop>
+      ) : null}
     </>
   );
 }

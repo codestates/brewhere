@@ -1,0 +1,69 @@
+.breweryPage {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.brewContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.pageTop {
+  text-align: center;
+}
+
+.brewName {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+}
+
+.address {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  font-family: 'Noto Sans KR';
+}
+
+.brewContents {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.pageLeft {
+  width: 50%;
+  text-align: center;
+}
+
+.brewPhoto {
+  width: 40rem;
+}
+
+.pageRight {
+  width: 50%;
+}
+
+.infoTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Roboto';
+  padding: 1rem;
+}
+
+.officeHour > p {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Roboto';
+}
+
+.aboutBrew {
+  overflow: hidden
+}
+
+.aboutBrew > p {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  word-break: keep-all;
+  line-height: 1.6;
+}
