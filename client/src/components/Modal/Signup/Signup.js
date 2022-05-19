@@ -127,7 +127,7 @@ function Signup() {
     console.log({ ...userinfo });
     axios
       .post(
-        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/signup",
+        `${process.env.REACT_APP_API_URL}/users/signup`,
         { ...userinfo },
         {
           headers: { "Content-Type": "application/json" },

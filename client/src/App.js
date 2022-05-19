@@ -18,7 +18,7 @@ function App() {
   const handleLogout = () => {
     axios
       .post(
-        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/signout"
+        `${process.env.REACT_APP_API_URL}/users/signout`
       )
       .then((res) => {
         setUserinfo(null);

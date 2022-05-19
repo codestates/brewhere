@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from 'axios';
-
-
+import { useNavigate } from "react-router-dom"
+import axios from "axios";
 
 const KakaoRedirectHandler = () => {
   const code = new URL(window.location.href).searchParams.get("code");
-  const history = useNavigate()
-  useEffect(()=> {
+  const history = useNavigate();
+  useEffect(() => {
+
     let params = new URL(document.location.toString()).searchParams;
     let code = params.get("code"); // 인가코드 받는 부분
     let grant_type = "authorization_code";
@@ -18,7 +17,7 @@ const KakaoRedirectHandler = () => {
         `https://kauth.kakao.com/oauth/token?
         grant_type=${grant_type}
         &client_id=${client_id}
-        &redirect_uri=http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/oauth/callback/kakao
+        &redirect_uri=http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/oauth/callback/kakao
         &code=${code}`,
         {
           headers: {

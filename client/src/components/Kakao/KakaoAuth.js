@@ -2,18 +2,18 @@ import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import qs from "qs";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const KakaoAuth = () => {
   const REST_API_KEY = "[본인 REST API KEY 값]";
   const REDIRECT_URI =
-    "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/oauth/kakao/callback";
+    `${process.env.REACT_APP_API_URL}/oauth/kakao/callback`;
   const CLIENT_SECRET = "[본인 CLIENT SECRET 값]";
 
   // calllback으로 받은 인가코드
   const code = new URL(window.location.href).searchParams.get("code");
 
-  const history = useHistory();
+  const history = useNavigate();
 
   const getToken = async () => {
     const payload = qs.stringify({

@@ -1,5 +1,5 @@
-let express = require('express'); 
-let app = express(); 
+let express = require('express');
+let app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
@@ -25,18 +25,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 app.use(cookieParser());
 
-app.get('/', function(req, res) { 
+app.get('/', function (req, res) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.send('Hello World!'); 
+  res.send('Hello World!');
 });
 
 sequelize.sync({ force: false })
-.then(() => {
-  console.log('데이터베이스 연결 성공')
-})
-.catch((err) => {
-  console.error(err)
-})
+  .then(() => {
+    console.log('데이터베이스 연결 성공')
+  })
+  .catch((err) => {
+    console.error(err)
+  })
 //데이터베이스 연결 위해 추가
 
 app.use('/users', usersRouter);
@@ -45,6 +45,7 @@ app.use('/mypage', mypageRouter);
 
 let port = 8080;
 //포트 겹치지 않기 위해 임시 변경 
-app.listen('http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/', function(){ 
-  console.log('server on! http://localhost:'+port); 
+
+app.listen('http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/', function () {
+  console.log('server on! http://localhost:' + port);
 });
