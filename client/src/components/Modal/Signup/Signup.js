@@ -127,7 +127,7 @@ function Signup() {
     console.log({ ...userinfo });
     axios
       .post(
-        "http://localhost:8080/users/signup",
+        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/signup",
         { ...userinfo },
         {
           headers: { "Content-Type": "application/json" },

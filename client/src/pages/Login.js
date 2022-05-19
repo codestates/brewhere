@@ -80,7 +80,7 @@ function Login() {
       return;
     }
     axios.post(
-      "http://localhost:8080/users/login",
+      "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/login",
       { email, password },
       {
         headers: { 'Content-Type': 'application/json'},

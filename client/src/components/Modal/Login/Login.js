@@ -64,7 +64,7 @@ function Login() {
   
   const isAuthenticated = () => {
     axios.get(
-      'http://localhost:8080/users/auth',
+      'http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/auth',
       {
         withCredentials: true
       })
@@ -104,7 +104,7 @@ function Login() {
     }
     console.log({email, password})
     axios.post(
-      "http://localhost:8080/users/login",
+      "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/login",
       { email, password },
       {
         headers: { 'Content-Type': 'application/json'},
@@ -123,7 +123,7 @@ function Login() {
 
     const handleLogout = () => {
       axios.get(
-        'http://localhost:8080/users/logout', 
+        'http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/logout', 
       {
         headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
         withCredentials: true,

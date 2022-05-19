@@ -2,6 +2,10 @@
   margin: auto;
 }
 
+.desc {
+  text-align: center;
+}
+
 .close-btn {
   position: absolute;
   top: 1rem;

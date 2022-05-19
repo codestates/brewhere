@@ -5,6 +5,5 @@ module.exports = (req, res) => {
   if(!accessToken ) {
     return res.status(401).send({ data: null, message: 'not authorized' });;
   } 
-  return res.status(200).send({ "data": { userInfo: accessToken.dataValues }});
-  
+  return res.status(200).send({ "data": { userInfo: accessToken }}); 
 }
