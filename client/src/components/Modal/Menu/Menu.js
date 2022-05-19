@@ -1,7 +1,7 @@
-import React, { useState, } from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import bars from "./../../Nav/img/bars.png";
-import { NavLink } from "react-router-dom";
 
 export const ModalContainer = styled.div`
   text-align: center;
@@ -103,11 +103,9 @@ function Menu() {
                 &times;
               </div>
               <div className="desc">MENU</div>
-              
               <NavLink to="/mypage/mypage" className="desc">
                 <div>마이페이지</div>
               </NavLink>
-
               <div className="desc">브루어리 찾기</div>
               <div className="desc">찜한 목록</div>
             </ModalView>

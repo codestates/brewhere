@@ -2,10 +2,12 @@ const dummydata = [
   {
     id: 1,
     title: "서울한남브루어리 한남점",
-    img: "./hannamBrew.jpg",
     lat: 37.53436061233845,
     lng: 127.00836115582649,
+    img: "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flocalfiy%2Fsearchregister_1540711267",
     address: "서울특별시 용산구 한남대로18길 18",
+    contacts: "070 - 8832 - 0915",
+    tags: "#수제맥주 #분위기좋은",
   },
   {
     id: 2,
