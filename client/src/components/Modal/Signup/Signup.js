@@ -24,7 +24,7 @@ export const ModalBackdrop = styled.div`
   right: 0;
   bottom: 0;
   margin: auto;
-  z-index: 999; 
+  z-index: 999;
 `;
 
 export const ModalBtn = styled.button`
@@ -36,7 +36,7 @@ export const ModalBtn = styled.button`
 `;
 
 export const ModalView = styled.div.attrs((props) => ({
-  role: "dialog"
+  role: "dialog",
 }))`
   display: flex;
   flex-direction: column;
@@ -127,7 +127,7 @@ function Signup() {
     console.log({ ...userinfo });
     axios
       .post(
-        "http://localhost:8080/users/signup",
+        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/signup",
         { ...userinfo },
         {
           headers: { "Content-Type": "application/json" },
@@ -135,7 +135,7 @@ function Signup() {
           // "rejectUnauthorized": false
         }
       )
-      .then((res) => console.log(res))
+      .then(openModalHandler(), alert("축하합니다. 회원가입이 되었습니다!"))
       .then(navigate("/"));
     // TODO: Signup API Call
   };

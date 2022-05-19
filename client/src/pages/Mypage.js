@@ -22,7 +22,7 @@ export const MypageContainer = styled.div`
 `;
 
 const Mypage = (userinfo) => {
-  const hasUserinfo = undefined;
+  const hasUserinfo = userinfo === undefined;
   console.log(userinfo);
   return (
     <>

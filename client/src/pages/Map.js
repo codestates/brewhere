@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 import { dummydata } from "./mapdata";
 import marker_yellow from "./images/marker_yellow.png";
-import marker_red from "./images/marker_red.png";
 
 const Location = () => {
   useEffect(() => {
@@ -30,12 +29,10 @@ const Location = () => {
       // 마커를 지도에 표시합니다.
       marker.setMap(map);
 
-      //! 마우스로 클릭했을 때 정보창 표시
-
       const iwContent = `
         <div style="width: 300px;">
           <div class="infoBox" style="text-align: center">
-            <a link="/" class="iwTitle" style="font-size: 20px; font-weight: 700; text-decoration: none;">${positions[i].title}</a>
+            <a href="/store" class="iwTitle" style="font-size: 20px; font-weight: 700;">${positions[i].title}</a>
             <div class="brewAddress" style="font-family: 'Roboto">${positions[i].address}</div>
             <div class="contactNum" style="font-family: 'Roboto">${positions[i].contacts}</div>
             <img style="width:100px; height:100px;" src=${positions[i].img}>
@@ -57,8 +54,6 @@ const Location = () => {
       //! 마우스를 올렸을 때 상점이름만 미리보기 및 해당 핀 이미지 전환 (핀 이미지 전환에 대한 useState 사용 해야됨)
 
       const moContent = `<div style="width: 200px; height: 30px; text-align: center; margin: 10px; font-size: 20px; font-family: 'Roboto;">${positions[i].title}</div>`;
-
-      const markerImageOvered = marker_red;
 
       const moInfo = new kakao.maps.InfoWindow({
         content: moContent,

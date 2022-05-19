@@ -64,11 +64,13 @@ function Login() {
 
   const isAuthenticated = () => {
     axios
-      .get("http://localhost:8080/users/auth", {
-        withCredentials: true,
-      })
+      .get(
+        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/auth",
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
-        console.log(res);
         setIsLogin(true);
         setUserinfo(res);
       });
@@ -89,7 +91,8 @@ function Login() {
 
   // 카카오 로그인 관련
   const CLIENT_ID = "a879c6361070a85ff535c43fddfd2bba";
-  const REDIRECT_URI = "http://localhost:3000/oauth/callback/kakao";
+  const REDIRECT_URI =
+    "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/oauth/callback/kakao";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const navigate = useNavigate();
@@ -100,10 +103,9 @@ function Login() {
       setErrorMessage("이메일과 비밀번호를 확인하세요");
       return;
     }
-    console.log({ email, password });
     axios
       .post(
-        "http://localhost:8080/users/login",
+        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/login",
         { email, password },
         {
           headers: { "Content-Type": "application/json" },
@@ -115,20 +117,20 @@ function Login() {
         openModalHandler();
         navigate("/");
         setUserinfo(email, password);
-        console.log(res);
-        console.log({ ...loginInfo });
-        console.log({ ...userinfo });
       });
   };
 
   const handleLogout = () => {
     axios
-      .get("http://localhost:8080/users/logout", {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        withCredentials: true,
-      })
+      .get(
+        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/logout",
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         setUserinfo(null);
         setIsLogin(false);
