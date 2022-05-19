@@ -6,7 +6,8 @@ import { useHistory } from "react-router-dom";
 
 const KakaoAuth = () => {
   const REST_API_KEY = "[본인 REST API KEY 값]";
-  const REDIRECT_URI = "http://localhost:3000/oauth/kakao/callback";
+  const REDIRECT_URI =
+    "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/oauth/kakao/callback";
   const CLIENT_SECRET = "[본인 CLIENT SECRET 값]";
 
   // calllback으로 받은 인가코드
@@ -29,7 +30,7 @@ const KakaoAuth = () => {
         "https://kauth.kakao.com/oauth/token",
         payload
       );
-      
+
       // Kakao Javascript SDK 초기화
       window.Kakao.init(REST_API_KEY);
       // access token 설정
