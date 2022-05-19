@@ -45,6 +45,6 @@ app.use('/mypage', mypageRouter);
 
 let port = 8080;
 //포트 겹치지 않기 위해 임시 변경 
-app.listen(port, function(){ 
+app.listen('http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/', function(){ 
   console.log('server on! http://localhost:'+port); 
 });

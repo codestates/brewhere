@@ -1,17 +1,16 @@
 import React, { } from "react";
-import loginInfo from "../components/Modal/Login/Login"
+import loginInfos from "../components/Modal/Login/Login.js"
 
-const Mypage = (loginInfo) => {
-  const hasUserinfo = loginInfo === undefined
-  console.log(loginInfo)
+const Mypage = (userinfo) => {
+  const hasUserinfo = userinfo === undefined
   return (
     <>
     <div>
       <center>
         <h1>{hasUserinfo ? '' : 'Mypage'}</h1>
-        <div className='username'>{hasUserinfo ? '' : loginInfo.username}</div>
-        <div className='email'>{hasUserinfo ? '' : loginInfo.email}</div>
-        <div className='mobile'>{hasUserinfo ? '' : loginInfo.mobile}</div>
+        <div className='username'>{hasUserinfo ? '' : userinfo.username}</div>
+        <div className='email'>{hasUserinfo ? '' : userinfo.email}</div>
+        <div className='mobile'>{hasUserinfo ? '' : userinfo.mobile}</div>
       </center>
     </div>
     </>

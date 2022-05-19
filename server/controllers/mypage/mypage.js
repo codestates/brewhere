@@ -2,7 +2,7 @@ const checkTokens = require('../auth');
 
 module.exports = (req, res) => {
   const userInfo = checkTokens(req);
-  console.log(userInfo);
+
   if(!userInfo) {
     res.status(401).json({message: '로그인이 필요합니다'});
   } else {
