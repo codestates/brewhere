@@ -3,11 +3,11 @@ const { sign, verify } = require('jsonwebtoken');
 
 module.exports = {
   generateAccessToken: data => {
-    return sign(data, process.env.ACCESS_SECRET, { expiresIn: '15s' });
+    return sign({...data}, process.env.ACCESS_SECRET, { expiresIn: '24h' });
   },
 
   generateRefreshToken: data => {
-    return sign(data, process.env.REFRESH_SECRET, { expiresIn: '10d' });
+    return sign({...data}, process.env.REFRESH_SECRET, { expiresIn: '10d' });
   },
 
   sendAccessToken: (res, accessToken) => {
@@ -28,13 +28,12 @@ module.exports = {
     });
   },
 
-  checkAccessToken: req => {
-    console.log(req.headers)
-    const authorization = req.headers['authorization'];
+  checkAccessToken: (req) => {
+    const authorization = req
     if (!authorization) {
       return null;
     }
-    const token = authorization.split(' ')[1];
+    const token = authorization
     try {
       return verify(token, process.env.ACCESS_SECRET);
     } catch (err) {

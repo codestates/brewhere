@@ -62,22 +62,22 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState('');
   const [isLogin, setIsLogin] = useState(false);
   
-  // const isAuthenticated = () => {
-  //   axios.get(
-  //     'http://localhost:8080/users/auth',
-  //     {
-  //       withCredentials: true
-  //     })
-  //     .then((res) => {
-  //       console.log(res)
-  //       setIsLogin(true);
-  //       setUserinfo(res);
-  //     })
-  //   }
+  const isAuthenticated = () => {
+    axios.get(
+      'http://localhost:8080/users/auth',
+      {
+        withCredentials: true
+      })
+      .then((res) => {
+        console.log(res)
+        setIsLogin(true);
+        setUserinfo(res);
+      })
+    }
   
     const handleResponseSuccess = () => {
       setIsLogin(true);
-      // isAuthenticated();
+      isAuthenticated();
     };
 
   const handleInputValue = (key) => (e) => {
