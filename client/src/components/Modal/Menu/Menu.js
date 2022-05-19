@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import bars from "./../../Nav/img/bars.png";
-import { NavLink } from "react-router-dom";
 
 export const ModalContainer = styled.div`
   text-align: center;

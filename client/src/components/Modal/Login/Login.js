@@ -65,7 +65,7 @@ function Login() {
   const isAuthenticated = () => {
     axios
       .get(
-        "http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/users/auth",
+        `${process.env.REACT_APP_API_URL}/users/auth`,
         {
           withCredentials: true,
         }
@@ -92,7 +92,7 @@ function Login() {
   // 카카오 로그인 관련
   const CLIENT_ID = "a879c6361070a85ff535c43fddfd2bba";
   const REDIRECT_URI =
-    "http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/oauth/callback/kakao";
+    `${process.env.REACT_APP_API_URL}/oauth/callback/kakao`;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const navigate = useNavigate();
@@ -105,7 +105,7 @@ function Login() {
     }
     axios
       .post(
-        "http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/users/login",
+        `${process.env.REACT_APP_API_URL}/users/login`,
         { email, password },
         {
           headers: { "Content-Type": "application/json" },
@@ -123,7 +123,7 @@ function Login() {
   const handleLogout = () => {
     axios
       .get(
-        "http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/users/logout",
+        `${process.env.REACT_APP_API_URL}/users/logout`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,

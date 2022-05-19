@@ -1,9 +1,10 @@
-import React, { useEffect, useHistory } from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom"
 import axios from "axios";
 
 const KakaoRedirectHandler = () => {
   const code = new URL(window.location.href).searchParams.get("code");
-  const history = useHistory();
+  const history = useNavigate();
   useEffect(() => {
     let params = new URL(document.location.toString()).searchParams;
     let code = params.get("code"); // 인가코드 받는 부분
