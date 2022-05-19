@@ -1,5 +1,5 @@
 a:link {
-  color : pink;
+  color : rgb(95, 62, 16);
   text-decoration: none;
 }
 a:visited {
@@ -12,7 +12,7 @@ a:hover {
   text-underline-position: under;
 }
 a:active {
-  color : green;
+  color : rgb(95, 62, 16);
   text-decoration: none;
 }
 

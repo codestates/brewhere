@@ -41,7 +41,7 @@ function App() {
             <Route exact path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/map' element={<Map />} />
-            <Route path='/mypage' element={<Mypage />} userinfo={userinfo} handleLogout={handleLogout} />
+            <Route path='/mypage/mypage' element={<Mypage />} userinfo={userinfo} handleLogout={handleLogout} />
             <Route path='/store' element={<Store />} />
             <Route path="/oauth/callback/kakao" component={KakaoRedirectHandler} element={<KakaoMypage />} />
             <Route path="/kakao/mypage" element={<KakaoMypage />} />
