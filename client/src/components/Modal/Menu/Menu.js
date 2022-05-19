@@ -104,17 +104,9 @@ function Menu() {
                 &times;
               </div>
               <div className="desc">MENU</div>
-<<<<<<< HEAD
-              
               <NavLink to="/mypage/mypage" className="desc">
                 <div>마이페이지</div>
               </NavLink>
-
-=======
-              <NavLink to="/mypage/mypage" className="desc">
-                <div>마이페이지</div>
-              </NavLink>
->>>>>>> fc64cb463d4b358aa5bd68bbced3d7d30d901e22
               <div className="desc">브루어리 찾기</div>
               <div className="desc">찜한 목록</div>
             </ModalView>
