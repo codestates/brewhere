@@ -5,6 +5,7 @@ const Mypage = (loginInfo) => {
   const hasUserinfo = loginInfo === undefined
   console.log(loginInfo)
   return (
+    <>
     <div>
       <center>
         <h1>{hasUserinfo ? '' : 'Mypage'}</h1>
@@ -13,7 +14,7 @@ const Mypage = (loginInfo) => {
         <div className='mobile'>{hasUserinfo ? '' : loginInfo.mobile}</div>
       </center>
     </div>
-
+    </>
   );
 };
 export default Mypage;
