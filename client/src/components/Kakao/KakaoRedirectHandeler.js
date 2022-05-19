@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import axios from 'axios';
 
 
@@ -16,7 +16,7 @@ const KakaoRedirectHandler = () => {
     axios.post(`https://kauth.kakao.com/oauth/token?
         grant_type=${grant_type}
         &client_id=${client_id}
-        &redirect_uri=http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/oauth/callback/kakao
+        &redirect_uri=http://localhost:3000/oauth/callback/kakao
         &code=${code}`
         , 
         {

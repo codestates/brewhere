@@ -17,6 +17,24 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
 
+  // const isAuthenticated = () => {
+  //   axios.get(
+  //     'http://localhost:8080/users/auth',
+  //     {
+  //       withCredentials: true
+  //     })
+  //     .then((res) => {
+  //       console.log(res)
+  //       setIsLogin(true);
+  //       setUserinfo(res);
+  //     })
+  //   }
+
+  //   const handleResponseSuccess = () => {
+  //     setIsLogin(true);
+  //     isAuthenticated();
+  //   };
+
   return (
     <div>
       <BrowserRouter>
@@ -27,7 +45,9 @@ function App() {
             <Route path='/mypage/mypage' element={<Mypage />} userinfo={userinfo} />
             <Route path="/oauth/callback/kakao" component={KakaoRedirectHandler} element={<KakaoMypage />} />
             <Route path="/kakao/mypage" element={<KakaoMypage />} />
-            <Route element={LoginModal} />
+            <Route element={LoginModal} setUserinfo={setUserinfo} 
+            // handleResponseSuccess={handleResponseSuccess} 
+            />
           </Routes>
       </BrowserRouter>
     </div>

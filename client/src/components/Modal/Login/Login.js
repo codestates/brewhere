@@ -52,13 +52,13 @@ export const ModalView = styled.div.attrs((props) => ({
   position: relative;
 `;
 
-function Login() {
+function Login({setUserinfo}) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
     email: '',
     password: ''
   });
-  const [userinfo, setUserinfo] = useState(null);
+  const [userinfo, setUserinfos] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [isLogin, setIsLogin] = useState(false);
 
@@ -68,7 +68,7 @@ function Login() {
   
   const isAuthenticated = () => {
     axios.get(
-      'http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/users/auth',
+      'http://localhost:8080/users/auth',
       {
         withCredentials: true
       })
@@ -95,7 +95,7 @@ function Login() {
 
   // 카카오 로그인 관련
   const CLIENT_ID = "a879c6361070a85ff535c43fddfd2bba";
-  const REDIRECT_URI = "http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/oauth/callback/kakao";
+  const REDIRECT_URI = "http://localhost:3000/oauth/callback/kakao";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const navigate = useNavigate();
@@ -106,9 +106,8 @@ function Login() {
       setErrorMessage('이메일과 비밀번호를 확인하세요')
       return;
     }
-
     axios.post(
-      "http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/users/login",
+      "http://localhost:8080/users/login",
       { email, password },
       {
         headers: { 'Content-Type': 'application/json'},
@@ -118,7 +117,7 @@ function Login() {
         handleResponseSuccess();
         openModalHandler();
         navigate("/");
-        setUserinfo(email, password);
+        setUserinfos(email, password);
         console.log(res);
         console.log({...loginInfo});
         console.log({...userinfo});
@@ -127,13 +126,13 @@ function Login() {
 
     const handleLogout = () => {
       axios.get(
-        'http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/users/logout', 
+        'http://localhost:8080/users/logout', 
       {
         headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
         withCredentials: true,
       }
       ).then((res) => {
-        setUserinfo(null);
+        setUserinfos(null);
         setIsLogin(false);
         navigate('/');
         alert('로그아웃 되었습니다.');

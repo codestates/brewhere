@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 const usersRouter = require('./router/usersRouter.js');
-// const breweryRouter = require('./router/breweryRouter.js');
+const breweryRouter = require('./router/breweryRouter.js');
 const mypageRouter = require('./router/mypageRouter.js');
 
 const { sequelize } = require('./models');
@@ -40,11 +40,11 @@ sequelize.sync({ force: false })
 //데이터베이스 연결 위해 추가
 
 app.use('/users', usersRouter);
-// app.use('/:breweryid', breweryRouter);
+app.use('/:breweryid', breweryRouter);
 app.use('/mypage', mypageRouter);
 
 let port = 8080;
 //포트 겹치지 않기 위해 임시 변경 
-app.listen('http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/', function(){ 
+app.listen(port, function(){ 
   console.log('server on! http://localhost:'+port); 
 });
