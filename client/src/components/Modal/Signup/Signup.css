@@ -1,0 +1,49 @@
+.modal-signup {
+  margin: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+  font-size: 3rem;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  cursor: pointer;
+  color: #000
+}
+
+.modal-signup-logo {
+  width: 30%;
+  margin-top: 1rem;
+}
+
+.input-signup {
+  width: 50%;
+  height: 6%;
+  margin-bottom: 3%;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Roboto';
+}
+
+.input-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.validate-text {
+  font-size: 1rem;
+  font-family: 'Noto Sans KR';
+  margin-top: .5rem;
+}
+
+.signup-btn {
+  width: 10rem;
+  padding: 0.5rem;
+  background: #DF9632;
+  color: #fff;
+  border-radius: 10px;
+}

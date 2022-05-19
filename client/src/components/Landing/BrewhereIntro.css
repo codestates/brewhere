@@ -1,0 +1,38 @@
+.brewhereIntro {
+  /* background-color: orange; */
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.logoSquare {
+  /* background-color: green; */
+  width: 400px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.title:after {
+  content: "";
+  display: block;
+  width: 100px;
+  border-bottom: 2px solid #000000;
+  margin: 40px 0px;
+}
+
+.introText {
+  font-weight: 400;
+  font-size: 32px;
+}
+
+.line {
+  padding-bottom: 10px;
+}
+
+span {
+  font-weight: bold;
+  color: #DF9632;
+}

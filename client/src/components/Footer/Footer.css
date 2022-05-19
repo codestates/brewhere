@@ -1,0 +1,82 @@
+a:link {
+  color : rgb(95, 62, 16);
+  text-decoration: none;
+}
+a:visited {
+  color : black;
+  text-decoration: none;
+}
+a:hover {
+  color : rgb(95, 62, 16);
+  text-decoration: underline;
+}
+a:active {
+  color : rgb(95, 62, 16);
+  text-decoration: none;
+}
+
+
+.ft-third {
+  width: 100%;
+  margin-top: 200px;
+  /* margin-bottom: 200px; */
+  background-color: rgb(223, 223, 223);
+}
+
+.team-macduck {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ft-title {
+  color: #000000;
+  text-align: center;
+  padding: 60px 0;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+}
+
+.members {
+  width: 200px;
+  height: auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+.members img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.members:nth-child(2) img {
+  background-color: rgb(98, 150, 198);
+}
+
+.members:nth-child(3) img {
+  background-color: rgb(141, 216, 134);
+}
+
+.ft-name {
+  font-weight: bold;
+  margin: 3%;
+}
+
+.ft-position {
+  margin-bottom: 50px;
+}
+
+.ft-git {
+  width: 100px;
+  height: 150px;
+}
+
+.gh-link {
+  color: rgb(0, 0, 0);
+}
