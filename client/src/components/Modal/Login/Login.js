@@ -62,20 +62,22 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState('');
   const [isLogin, setIsLogin] = useState(false);
   
-  // const isAuthenticated = () => {
-  //   axios.get(
-  //     'http://localhost:8080/users/login',
-  //     {
-  //       withCredentials: true
-  //     })
-  //     .then((res) => {
-  //       setIsLogin(true);
-  //       setUserinfo(res);
-  //     })
-  //   }
+  const isAuthenticated = () => {
+    axios.get(
+      'http://localhost:8080/users/auth',
+      {
+        withCredentials: true
+      })
+      .then((res) => {
+        console.log(res)
+        setIsLogin(true);
+        setUserinfo(res);
+      })
+    }
   
     const handleResponseSuccess = () => {
-      // isAuthenticated();
+      setIsLogin(true);
+      isAuthenticated();
     };
 
   const handleInputValue = (key) => (e) => {
@@ -109,26 +111,40 @@ function Login() {
         withCredentials: true,
       })
       .then((res) => {
-        handleResponseSuccess()
-        openModalHandler()
-        navigate("/")
+        handleResponseSuccess();
+        openModalHandler();
+        navigate("/");
+        setUserinfo(email, password);
+        console.log(res);
+        console.log({...loginInfo});
+        console.log({...userinfo});
       })
     }
 
     const handleLogout = () => {
-      axios.post('https://localhost:8080/users/logout').then((res) => {
+      axios.get(
+        'http://localhost:8080/users/logout', 
+      {
+        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
+        withCredentials: true,
+      }
+      ).then((res) => {
         setUserinfo(null);
         setIsLogin(false);
+        navigate('/');
+        alert('로그아웃 되었습니다.');
       })
+      .catch(err => {
+        alert('잘못된 요청입니다');
+        console.log(err);
+      });
     };
 
   return (
     <>
-      <ModalContainer onClick={openModalHandler}>
-      {isLogin ? <ModalBtn onClick={handleLogout}>로그아웃</ModalBtn> : 
+      {isLogin ? <button onClick={handleLogout}>로그아웃</button> : 
       <ModalBtn onClick={openModalHandler}>로그인</ModalBtn>}
         
-
         {modalIsOpen ? (
           <ModalBackdrop onClick={openModalHandler}>
             <ModalView
@@ -178,7 +194,6 @@ function Login() {
             </ModalView>
           </ModalBackdrop>
         ) : null}
-      </ModalContainer>
     </>
   );
 }

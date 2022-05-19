@@ -1,17 +1,16 @@
 import React, { } from "react";
+import loginInfo from "../components/Modal/Login/Login"
 
-const Mypage = (props) => {
-  const hasUserinfo = props.userinfo === undefined
+const Mypage = (loginInfo) => {
+  const hasUserinfo = loginInfo === undefined
+  console.log(loginInfo)
   return (
     <div>
       <center>
         <h1>{hasUserinfo ? '' : 'Mypage'}</h1>
-        <div className='username'>{hasUserinfo ? '' : props.userinfo.username}</div>
-        <div className='email'>{hasUserinfo ? '' : props.userinfo.email}</div>
-        <div className='mobile'>{hasUserinfo ? '' : props.userinfo.mobile}</div>
-        <button className='btn btn-logout' onClick={hasUserinfo ? '' : props.handleLogout}>
-          {hasUserinfo ? '' : 'logout'}
-        </button>
+        <div className='username'>{hasUserinfo ? '' : loginInfo.username}</div>
+        <div className='email'>{hasUserinfo ? '' : loginInfo.email}</div>
+        <div className='mobile'>{hasUserinfo ? '' : loginInfo.mobile}</div>
       </center>
     </div>
 
