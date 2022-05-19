@@ -9,6 +9,7 @@ a:visited {
 a:hover {
   color : rgb(95, 62, 16);
   text-decoration: underline;
+  text-underline-position: under;
 }
 a:active {
   color : rgb(95, 62, 16);
@@ -36,6 +37,11 @@ a:active {
   font-weight: bold;
 }
 
+.ft-title a {
+  font-family: 'Roboto';
+  font-weight: 700;
+}
+
 .team {
   display: flex;
   justify-content: center;
@@ -56,11 +62,11 @@ a:active {
 }
 
 .members:nth-child(2) img {
-  background-color: rgb(98, 150, 198);
+  background-color: rgb(149, 192, 232);
 }
 
 .members:nth-child(3) img {
-  background-color: rgb(141, 216, 134);
+  background-color: rgb(145, 233, 137);
 }
 
 .ft-name {
@@ -70,6 +76,8 @@ a:active {
 
 .ft-position {
   margin-bottom: 50px;
+  font-family: 'Noto Sans KR';
+  font-weight: 600;
 }
 
 .ft-git {
