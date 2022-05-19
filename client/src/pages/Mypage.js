@@ -1,19 +1,43 @@
-import React, { } from "react";
-import loginInfo from "../components/Modal/Login/Login"
+import React from "react";
+import loginInfos from "../components/Modal/Login/Login.js";
+import styled from "styled-components";
 
-const Mypage = (loginInfo) => {
-  const hasUserinfo = loginInfo === undefined
-  console.log(loginInfo)
+export const MypageContainer = styled.div`
+  background-color: lightgray;
+  margin-top: 60px;
+  > center {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  > center h1 {
+    font-size: 3rem;
+    padding: 1rem;
+    font-family: "Roboto";
+  }
+  > center div {
+    width: 20rem;
+    background: lightblue;
+    padding: 1.3rem;
+  }
+`;
+
+const Mypage = (userinfo) => {
+  const hasUserinfo = undefined;
+  console.log(userinfo);
   return (
-    <div>
-      <center>
-        <h1>{hasUserinfo ? '' : 'Mypage'}</h1>
-        <div className='username'>{hasUserinfo ? '' : loginInfo.username}</div>
-        <div className='email'>{hasUserinfo ? '' : loginInfo.email}</div>
-        <div className='mobile'>{hasUserinfo ? '' : loginInfo.mobile}</div>
-      </center>
-    </div>
-
+    <>
+      <MypageContainer>
+        <center>
+          <h1 className="mypageTitle">{hasUserinfo ? "" : "Mypage"}</h1>
+          <div className="useremail">
+            {hasUserinfo ? "" : userinfo.useremail}useremail이 오는 자리
+          </div>
+          <div className="nickname">
+            {hasUserinfo ? "" : userinfo.nickname}nickname이 오는 자리
+          </div>
+        </center>
+      </MypageContainer>
+    </>
   );
 };
 export default Mypage;
