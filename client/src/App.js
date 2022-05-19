@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import Home from "./pages/Home";
 import Map from "./pages/Map";
@@ -14,8 +14,6 @@ const axios = require("axios");
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
-
-  // const navigate = useNavigate();
 
   const handleLogout = () => {
     axios

@@ -6,6 +6,7 @@ const KakaoRedirectHandler = () => {
   const code = new URL(window.location.href).searchParams.get("code");
   const history = useNavigate();
   useEffect(() => {
+
     let params = new URL(document.location.toString()).searchParams;
     let code = params.get("code"); // 인가코드 받는 부분
     let grant_type = "authorization_code";
