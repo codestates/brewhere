@@ -127,11 +127,7 @@ function Signup() {
     console.log({ ...userinfo });
     axios
       .post(
-<<<<<<< HEAD
-        "http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/users/signup",
-=======
-        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/signup",
->>>>>>> fc64cb463d4b358aa5bd68bbced3d7d30d901e22
+        "http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/users/signup",
         { ...userinfo },
         {
           headers: { "Content-Type": "application/json" },

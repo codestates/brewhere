@@ -62,27 +62,14 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState("");
   const [isLogin, setIsLogin] = useState(false);
 
-<<<<<<< HEAD
-  const loginInfos = (loginInfo) => {
-    return loginInfo
-  }
-  
-  const isAuthenticated = () => {
-    axios.get(
-      'http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/users/auth',
-      {
-        withCredentials: true
-      })
-=======
   const isAuthenticated = () => {
     axios
       .get(
-        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/auth",
+        "http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/users/auth",
         {
           withCredentials: true,
         }
       )
->>>>>>> fc64cb463d4b358aa5bd68bbced3d7d30d901e22
       .then((res) => {
         setIsLogin(true);
         setUserinfo(res);
@@ -104,12 +91,8 @@ function Login() {
 
   // 카카오 로그인 관련
   const CLIENT_ID = "a879c6361070a85ff535c43fddfd2bba";
-<<<<<<< HEAD
-  const REDIRECT_URI = "http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/oauth/callback/kakao";
-=======
   const REDIRECT_URI =
-    "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/oauth/callback/kakao";
->>>>>>> fc64cb463d4b358aa5bd68bbced3d7d30d901e22
+    "http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/oauth/callback/kakao";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const navigate = useNavigate();
@@ -120,26 +103,15 @@ function Login() {
       setErrorMessage("이메일과 비밀번호를 확인하세요");
       return;
     }
-<<<<<<< HEAD
-
-    axios.post(
-      "http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/users/login",
-      { email, password },
-      {
-        headers: { 'Content-Type': 'application/json'},
-        withCredentials: true,
-      })
-=======
     axios
       .post(
-        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/login",
+        "http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/users/login",
         { email, password },
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         }
       )
->>>>>>> fc64cb463d4b358aa5bd68bbced3d7d30d901e22
       .then((res) => {
         handleResponseSuccess();
         openModalHandler();
@@ -148,20 +120,10 @@ function Login() {
       });
   };
 
-<<<<<<< HEAD
-    const handleLogout = () => {
-      axios.get(
-        'http://ec2-3-39-231-239.ap-northeast-2.compute.amazonaws.com/users/logout', 
-      {
-        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
-        withCredentials: true,
-      }
-      ).then((res) => {
-=======
   const handleLogout = () => {
     axios
       .get(
-        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/logout",
+        "http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/users/logout",
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -170,7 +132,6 @@ function Login() {
         }
       )
       .then((res) => {
->>>>>>> fc64cb463d4b358aa5bd68bbced3d7d30d901e22
         setUserinfo(null);
         setIsLogin(false);
         navigate("/");

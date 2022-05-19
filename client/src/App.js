@@ -20,7 +20,7 @@ function App() {
   const handleLogout = () => {
     axios
       .post(
-        "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/users/signout"
+        "http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/users/signout"
       )
       .then((res) => {
         setUserinfo(null);

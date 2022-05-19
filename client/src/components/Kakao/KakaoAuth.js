@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 const KakaoAuth = () => {
   const REST_API_KEY = "[본인 REST API KEY 값]";
   const REDIRECT_URI =
-    "http://ec2-43-200-8-0.ap-northeast-2.compute.amazonaws.com/oauth/kakao/callback";
+    "http://ec2-3-34-4-5.ap-northeast-2.compute.amazonaws.com/oauth/kakao/callback";
   const CLIENT_SECRET = "[본인 CLIENT SECRET 값]";
 
   // calllback으로 받은 인가코드
