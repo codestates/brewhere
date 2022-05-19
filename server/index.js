@@ -7,7 +7,7 @@ const path = require('path');
 
 const usersRouter = require('./router/usersRouter.js');
 // const breweryRouter = require('./router/breweryRouter.js');
-// const mypageRouter = require('./router/mypageRouter.js');
+const mypageRouter = require('./router/mypageRouter.js');
 
 const { sequelize } = require('./models');
 
@@ -41,7 +41,7 @@ sequelize.sync({ force: false })
 
 app.use('/users', usersRouter);
 // app.use('/:breweryid', breweryRouter);
-// app.use('/mypage', mypageRouter);
+app.use('/mypage', mypageRouter);
 
 let port = 8080;
 //포트 겹치지 않기 위해 임시 변경 

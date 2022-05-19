@@ -1,16 +1,11 @@
 const { checkAccessToken, checkRefreshToken} = require('../controllers/tokenFunctions');
 
 module.exports = (req, res) => {
-  const accessToken = checkAccessToken(req);
-  const refreshToken = checkRefreshToken(req.cookies.refreshToken);
-
-  if(!accessToken && !refreshToken) {
-    return null;
-  } else if(accessToken) {
-    delete accessToken.password;
-    return accessToken;
-  } else {
-    delete accessToken.password;
-    return refreshToken;
-  }
+  const accessToken = checkAccessToken(req.cookies);
+  console.log(req)
+  if(!accessToken ) {
+    return res.status(401).send({ data: null, message: 'not authorized' });;
+  } 
+  return res.status(200).send({ "data": { userInfo: accessToken.dataValues }});
+  
 }
