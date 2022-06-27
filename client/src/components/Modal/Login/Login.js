@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import logo from "../../Landing/img/logo_x05_square.png";
-import styled from "styled-components";
-import SignupModal from "../Signup/Signup";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import logo from '../../Landing/img/logo_x05_square.png';
+import styled from 'styled-components';
+import SignupModal from '../Signup/Signup';
 
-import "./Login.css";
+import './Login.css';
 
-const axios = require("axios");
+const axios = require('axios');
 
 export const ModalContainer = styled.div`
   text-align: center;
@@ -39,7 +39,7 @@ export const ModalBtn = styled.button`
 `;
 
 export const ModalView = styled.div.attrs((props) => ({
-  role: "dialog",
+  role: 'dialog',
 }))`
   display: flex;
   flex-direction: column;
@@ -55,21 +55,18 @@ export const ModalView = styled.div.attrs((props) => ({
 function Login() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
-    email: "",
-    password: "",
+    useremail: '',
+    password: '',
   });
   const [userinfo, setUserinfo] = useState(null);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
   const [isLogin, setIsLogin] = useState(false);
 
   const isAuthenticated = () => {
     axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/users/auth`,
-        {
-          withCredentials: true,
-        }
-      )
+      .get(`${process.env.REACT_APP_API_URL}/users/auth`, {
+        withCredentials: true,
+      })
       .then((res) => {
         setIsLogin(true);
         setUserinfo(res);
@@ -90,55 +87,51 @@ function Login() {
   };
 
   // 카카오 로그인 관련
-  const CLIENT_ID = "a879c6361070a85ff535c43fddfd2bba";
-  const REDIRECT_URI =
-    `${process.env.REACT_APP_API_URL}/oauth/callback/kakao`;
+  const CLIENT_ID = 'a879c6361070a85ff535c43fddfd2bba';
+  const REDIRECT_URI = `${process.env.REACT_APP_API_URL}/oauth/callback/kakao`;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const navigate = useNavigate();
 
   const onClickSubmit = () => {
-    const { email, password } = loginInfo;
-    if (!email || !password) {
-      setErrorMessage("이메일과 비밀번호를 확인하세요");
-      return;
-    }
+    const { useremail, password } = loginInfo;
+    // if (!useremail || !password) {
+    //   setErrorMessage('이메일과 비밀번호를 확인하세요');
+    //   return;
+    // }
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/users/login`,
-        { email, password },
+        { userEmail: useremail, password },
         {
-          headers: { "Content-Type": "application/json" },
+          headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         }
       )
       .then((res) => {
         handleResponseSuccess();
         openModalHandler();
-        navigate("/");
-        setUserinfo(email, password);
+        navigate('/');
+        setUserinfo(useremail, password);
       });
   };
 
   const handleLogout = () => {
     axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/users/logout`,
-        {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-          withCredentials: true,
-        }
-      )
+      .get(`${process.env.REACT_APP_API_URL}/users/logout`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+        withCredentials: true,
+      })
       .then((res) => {
         setUserinfo(null);
         setIsLogin(false);
-        navigate("/");
-        alert("로그아웃 되었습니다.");
+        navigate('/');
+        alert('로그아웃 되었습니다.');
       })
       .catch((err) => {
-        alert("잘못된 요청입니다");
+        alert('잘못된 요청입니다');
         console.log(err);
       });
   };
@@ -158,42 +151,42 @@ function Login() {
               event.stopPropagation();
             }}
           >
-            <div className="close-btn" onClick={openModalHandler}>
+            <div className='close-btn' onClick={openModalHandler}>
               &times;
             </div>
 
-            <div className="desc">
-              <img src={logo} alt="logo" className="modal-login-logo" />
+            <div className='desc'>
+              <img src={logo} alt='logo' className='modal-login-logo' />
             </div>
-            <div className="desc input-title">이메일</div>
+            <div className='desc input-title'>이메일</div>
             <input
-              type="text"
-              className="input-login"
-              placeholder="example@kakao.com"
-              onChange={handleInputValue("email")}
+              type='text'
+              className='input-login'
+              placeholder='example@kakao.com'
+              onChange={handleInputValue('useremail')}
             />
-            <div className="desc input-title">비밀번호</div>
+            <div className='desc input-title'>비밀번호</div>
             <input
-              type="password"
-              className="input-login"
-              placeholder="비밀번호를 입력해주세요"
-              onChange={handleInputValue("password")}
+              type='password'
+              className='input-login'
+              placeholder='비밀번호를 입력해주세요'
+              onChange={handleInputValue('password')}
             />
             <div>{errorMessage}</div>
             <button
-              className="desc login-btn"
-              type="submit"
+              className='desc login-btn'
+              type='submit'
               onClick={onClickSubmit}
             >
               로그인
             </button>
             <a href={KAKAO_AUTH_URL}>
-              <div className="kakao_btn"></div>
+              <div className='kakao_btn'></div>
             </a>
             <br />
-            <div className="signup-text">
+            <div className='signup-text'>
               아이디가 없으신가요 ?
-              <span className="signup-link">
+              <span className='signup-link'>
                 <SignupModal />
               </span>
             </div>
