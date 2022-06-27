@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import logo from "../../Landing/img/logo_x05_square.png";
-import styled from "styled-components";
-import "./Signup.css";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import logo from '../../Landing/img/logo_x05_square.png';
+import styled from 'styled-components';
+import './Signup.css';
 
-const axios = require("axios");
+const axios = require('axios');
 
 export const ModalContainer = styled.div`
   text-align: center;
@@ -36,7 +36,7 @@ export const ModalBtn = styled.button`
 `;
 
 export const ModalView = styled.div.attrs((props) => ({
-  role: "dialog",
+  role: 'dialog',
 }))`
   display: flex;
   flex-direction: column;
@@ -53,15 +53,15 @@ function Signup() {
   const navigate = useNavigate();
 
   const [userinfo, setUserinfo] = useState({
-    username: "",
-    useremail: "",
-    password: "",
+    username: '',
+    useremail: '',
+    password: '',
   });
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [useremail, setEmail] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [useremail, setEmail] = useState('');
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -82,7 +82,7 @@ function Signup() {
     //  8자 이상의 영문, 숫자 조합
     const regExp = /(?=.*\d)(?=.*[a-zA-ZS]).{8,}/;
     // 형식에 맞는 경우 true 리턴
-    console.log("비밀번호 유효성 검사 :: ", regExp.test(e.target.value));
+    console.log('비밀번호 유효성 검사 :: ', regExp.test(e.target.value));
     setPassword(e.target.value);
     if (regExp.test(e.target.value)) {
       setPasswordError(false);
@@ -112,7 +112,7 @@ function Signup() {
 
   const handleButtonValid = () => {
     validation();
-    if (!validatedAll) alert("조건에 맞게 모든 칸을 작성해주세요");
+    if (!validatedAll) alert('조건에 맞게 모든 칸을 작성해주세요');
     else onSubmit();
   };
 
@@ -128,15 +128,15 @@ function Signup() {
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/users/signup`,
-        { ...userinfo },
+        { userName: username, userEmail: useremail, password: password },
         {
-          headers: { "Content-Type": "application/json" },
+          headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
           // "rejectUnauthorized": false
         }
       )
-      .then(openModalHandler(), alert("축하합니다. 회원가입이 되었습니다!"))
-      .then(navigate("/"));
+      .then(openModalHandler(), alert('축하합니다. 회원가입이 되었습니다!'))
+      .then(navigate('/'));
     // TODO: Signup API Call
   };
 
@@ -152,64 +152,64 @@ function Signup() {
                 event.stopPropagation();
               }}
             >
-              <div className="close-btn" onClick={openModalHandler}>
+              <div className='close-btn' onClick={openModalHandler}>
                 &times;
               </div>
 
-              <div className="desc">
+              <div className='desc'>
                 <img
                   src={logo}
-                  alt="modal-signup-logo"
-                  className="modal-signup-logo"
+                  alt='modal-signup-logo'
+                  className='modal-signup-logo'
                 />
               </div>
 
-              <div className="desc input-title">이메일</div>
+              <div className='desc input-title'>이메일</div>
               {emailError ? (
-                <div className="validate-text">
+                <div className='validate-text'>
                   이메일 형식에 맞춰 작성해주세요.
                 </div>
               ) : null}
               <input
-                type="text"
-                className="input-signup"
-                placeholder="example@gmail.com"
+                type='text'
+                className='input-signup'
+                placeholder='example@gmail.com'
                 onBlur={onChangeEmail}
-                onChange={handleInputValue("useremail")}
+                onChange={handleInputValue('useremail')}
               />
-              <div className="desc input-title">닉네임</div>
+              <div className='desc input-title'>닉네임</div>
               <input
-                type="text"
-                className="input-signup"
-                placeholder="MACDUCK"
+                type='text'
+                className='input-signup'
+                placeholder='MACDUCK'
                 onBlur={onChangeUsername}
-                onChange={handleInputValue("username")}
+                onChange={handleInputValue('username')}
               />
-              <div className="desc input-title">비밀번호</div>
+              <div className='desc input-title'>비밀번호</div>
               {passwordError ? (
-                <div className="validate-text">
+                <div className='validate-text'>
                   8자 이상의 영문, 숫자를 입력해야 합니다.
                 </div>
               ) : null}
               <input
-                type="text"
-                className="input-signup"
-                placeholder="8자 이상의 영문, 숫자를 입력해주세요"
+                type='text'
+                className='input-signup'
+                placeholder='8자 이상의 영문, 숫자를 입력해주세요'
                 onBlur={checkPassword}
-                onChange={handleInputValue("password")}
+                onChange={handleInputValue('password')}
               />
-              <div className="desc input-title">비밀번호 확인</div>
+              <div className='desc input-title'>비밀번호 확인</div>
               {confirmPasswordError ? (
-                <div className="validate-text">비밀번호가 다릅니다.</div>
+                <div className='validate-text'>비밀번호가 다릅니다.</div>
               ) : null}
               <input
-                type="text"
-                className="input-signup"
-                placeholder="8자 이상의 영문, 숫자를 입력해주세요"
+                type='text'
+                className='input-signup'
+                placeholder='8자 이상의 영문, 숫자를 입력해주세요'
                 onChange={checkPasswordMatch}
               />
 
-              <button className="signup-btn" onClick={handleButtonValid}>
+              <button className='signup-btn' onClick={handleButtonValid}>
                 Let's Brew!
               </button>
             </ModalView>
