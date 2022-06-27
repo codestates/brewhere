@@ -43,14 +43,14 @@
 ### 정민규
 
 - Position: Front-end
-- Stack : JavaScript, React.js, Styled-Component
+- Stack : JavaScript, React.js, CSS
 - main kick: 카카오맵 api를 활용한 브루어리 위치 찾기
 
 ### 박선교 
 
 - Position: Front-end
-- Stack : JavaScript, React.js, Styled-Component
-- main kick: 카카오맵 api를 활용한 브루어리 위치 찾기
+- Stack : JavaScript, React.js, CSS
+- main kick: 회원가입, 로그인, 로그아웃 등 회원정보 관련 기능
 
 
 ## Deploy(임시)
