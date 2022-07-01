@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import bars from "./../../Nav/img/bars.png";
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import bars from './../../Nav/img/bars.png';
 
 export const ModalContainer = styled.div`
   text-align: center;
@@ -32,11 +32,11 @@ export const ModalBtn = styled.button`
   text-decoration: none;
   border: none;
   padding: 20px;
-  cursor: grab;
+  cursor: pointer;
 `;
 
 export const ModalView = styled.div.attrs((props) => ({
-  role: "dialog",
+  role: 'dialog',
 }))`
   display: flex;
   flex-direction: column;
@@ -56,14 +56,14 @@ export const ModalView = styled.div.attrs((props) => ({
     font-size: 4rem;
   }
   > div.desc {
-    font-family: "Roboto";
+    font-family: 'Roboto';
     font-size: 2rem;
     font-weight: 700;
     margin: 2rem 2rem 0 0;
     padding: 0.5rem;
   }
   > a.desc {
-    font-family: "Roboto";
+    font-family: 'Roboto';
     font-size: 2rem;
     font-weight: 700;
     margin: 2rem 2rem 0 0;
@@ -77,13 +77,6 @@ function Menu() {
   const openModalHandler = () => {
     setModalIsOpen(!modalIsOpen);
   };
-  // const history = useHistory('');
-  // 모달 창이 열렸을 때, 스크롤 막기
-  // if (modalIsOpen) {
-  //   document.body.style.overflow = "hidden";
-  // } else {
-  //   document.body.style.overflow = "unset";
-  // }
 
   return (
     <>
@@ -99,15 +92,15 @@ function Menu() {
                 event.stopPropagation();
               }}
             >
-              <div className="close-btn" onClick={openModalHandler}>
+              <div className='close-btn' onClick={openModalHandler}>
                 &times;
               </div>
-              <div className="desc">MENU</div>
-              <NavLink to="/mypage/mypage" className="desc">
+              <div className='desc'>MENU</div>
+              <NavLink to='/mypage' className='desc'>
                 <div>마이페이지</div>
               </NavLink>
-              <div className="desc">브루어리 찾기</div>
-              <div className="desc">찜한 목록</div>
+              <div className='desc'>브루어리 찾기</div>
+              <div className='desc'>찜한 목록</div>
             </ModalView>
           </ModalBackdrop>
         ) : null}

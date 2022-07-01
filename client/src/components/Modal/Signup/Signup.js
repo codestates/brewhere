@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../Landing/img/logo_x05_square.png';
 import styled from 'styled-components';
+import ConfirmModal from '../ConfirmModal';
 import './Signup.css';
 
 const axios = require('axios');
@@ -64,11 +65,11 @@ function Signup() {
   const [useremail, setEmail] = useState('');
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   const [passwordError, setPasswordError] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
   const [emailError, setEmailError] = useState(false);
-  const [validatedAll, setValidatedAll] = useState(false);
 
   const handleInputValue = (key) => (e) => {
     setUserinfo({ ...userinfo, [key]: e.target.value });
@@ -111,16 +112,9 @@ function Signup() {
   // const getIsActive = checkPassword && checkEmail  === true;
 
   const handleButtonValid = () => {
-    validation();
-    if (!validatedAll) alert('조건에 맞게 모든 칸을 작성해주세요');
-    else onSubmit();
-  };
-
-  const validation = () => {
-    // 만약, vaildate가 모두 통과되지 않았으면 false, 전부 통과하면 true
-    if (!passwordError || !confirmPasswordError || !emailError) {
-      setValidatedAll(true);
-    }
+    if (passwordError || confirmPasswordError || emailError) {
+      alert('조건에 맞게 모든 칸을 작성해주세요');
+    } else onSubmit();
   };
 
   const onSubmit = () => {
@@ -135,9 +129,8 @@ function Signup() {
           // "rejectUnauthorized": false
         }
       )
-      .then(openModalHandler(), alert('축하합니다. 회원가입이 되었습니다!'))
+      .then(setConfirmOpen(true))
       .then(navigate('/'));
-    // TODO: Signup API Call
   };
 
   return (
@@ -192,7 +185,7 @@ function Signup() {
                 </div>
               ) : null}
               <input
-                type='text'
+                type='password'
                 className='input-signup'
                 placeholder='8자 이상의 영문, 숫자를 입력해주세요'
                 onBlur={checkPassword}
@@ -203,7 +196,7 @@ function Signup() {
                 <div className='validate-text'>비밀번호가 다릅니다.</div>
               ) : null}
               <input
-                type='text'
+                type='password'
                 className='input-signup'
                 placeholder='8자 이상의 영문, 숫자를 입력해주세요'
                 onChange={checkPasswordMatch}
@@ -216,6 +209,7 @@ function Signup() {
           </ModalBackdrop>
         ) : null}
       </ModalContainer>
+      {confirmOpen ? <ConfirmModal>회원가입 되었습니다!</ConfirmModal> : null}
     </>
   );
 }

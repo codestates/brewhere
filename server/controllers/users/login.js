@@ -22,7 +22,9 @@ module.exports = async (req, res) => {
       const refreshToken = generateRefreshToken(userInfo.dataValues);
       sendAccessToken(res, accessToken);
       sendRefreshToken(res, refreshToken);
-      return res.status(200).json({ message: '로그인에 성공하였습니다' });
+      return res
+        .status(200)
+        .json({ data: { accessToken }, message: '로그인에 성공하였습니다' });
     }
   } catch (err) {
     console.error(err);
