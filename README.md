@@ -54,4 +54,4 @@
 
 
 ## Deploy(임시)
-[Brewhere](https://client.brewhere.click/)
+[Brewhere](https://client.brewhere.click/](https://client.brewhere.link/)
