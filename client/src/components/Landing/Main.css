@@ -1,0 +1,77 @@
+a:hover, a:visited, a:link, a:active {
+  text-decoration-line: none;
+}
+
+a:hover {
+  color: #a00;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-image: url(./img/beertapbg.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0% 40%;
+}
+
+#mainTop {
+  margin: 15.625rem 0;
+  flex-direction: column;
+  width: 858px;
+  transform: translateX(3.125rem);
+}
+
+.mainTitle {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  padding-bottom: 1.25rem;
+}
+
+.slogan {
+  font-size: 3rem;
+  color: #FFFFFF;
+}
+
+#bigSlogan {
+  margin-left: 20px;
+  font-size: 4rem;
+}
+
+.startBtn {
+  margin-top: 20px;
+  width: 270px;
+  height: 80px;
+  background-color: #DF9632;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #4D1F0F;
+}
+
+.startBtn p {
+  text-align: center;
+  font-size: 40px;;
+  color: #4D1F0F;
+}
+
+.scrollDown {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+.scrollDown p {
+  color: #FFFFFF;
+  font-size: 20px;
+  transform: translateX(-50%);
+}
+
+.scrollDown img {
+  width: 40px;
+  transform: translateX(-50%);
+}
