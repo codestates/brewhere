@@ -53,5 +53,5 @@
 - main kick: 회원가입, 로그인, 로그아웃 등 회원정보 관련 기능
 
 
-## Deploy(임시)
+## Deploy
 [Brewhere](https://client.brewhere.link/)
