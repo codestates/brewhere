@@ -2,14 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="" />
-    <!-- TODO : favicon 작은 이미지로 만들어서 넣기 -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta 
-      name="description"
-      content="Brew where? Brewhere!"
-    />
+    <meta name="description" content="Brew where? Brewhere!" />
     <style>
       @font-face {
         font-family: 'Roboto', sans-serif;
@@ -25,8 +21,8 @@
         font-family: 'Noto Sans KR', sans-serif;
         src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
       }
-      
-      *{
+
+      * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -34,11 +30,13 @@
       }
     </style>
     <title>Brewhere</title>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=983e742fcb41670cc42dc7b2fda5c46a&libraries=services,clusterer,drawing"></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=%REACT_APP_KAKAO_MAP%&libraries=services,clusterer,drawing"
+    ></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
   </head>
   <body>
-    <div id="root">
-    </div>
+    <div id="root"></div>
   </body>
 </html>
