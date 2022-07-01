@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import logo from '../../Landing/img/logo_x05_square.png';
 import styled from 'styled-components';
 import SignupModal from '../Signup/Signup';
+import ConfirmModal from '../ConfirmModal';
 
 import './Login.css';
 
@@ -35,7 +35,7 @@ export const ModalBtn = styled.button`
   border: none;
   padding: 20px;
   color: black;
-  cursor: grab;
+  cursor: pointer;
 `;
 
 export const ModalView = styled.div.attrs((props) => ({
@@ -52,29 +52,25 @@ export const ModalView = styled.div.attrs((props) => ({
   position: relative;
 `;
 
-function Login() {
+function Login({ setUserinfo }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [loginConfirmOpen, setLoginConfirmOpen] = useState(false);
+  const [logoutConfirmOpen, setLogoutConfirmOpen] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
-    useremail: '',
+    userEmail: '',
     password: '',
   });
-  const [userinfo, setUserinfo] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
-  const [isLogin, setIsLogin] = useState(false);
 
   const isAuthenticated = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/users/auth`, {
         withCredentials: true,
       })
-      .then((res) => {
-        setIsLogin(true);
-        setUserinfo(res);
-      });
+      .then((res) => {});
   };
 
   const handleResponseSuccess = () => {
-    setIsLogin(true);
     isAuthenticated();
   };
 
@@ -86,49 +82,46 @@ function Login() {
     setModalIsOpen(!modalIsOpen);
   };
 
-  // 카카오 로그인 관련
-  const CLIENT_ID = 'a879c6361070a85ff535c43fddfd2bba';
-  const REDIRECT_URI = `${process.env.REACT_APP_API_URL}/oauth/callback/kakao`;
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
-
-  const navigate = useNavigate();
+  const kakaoLoginHandler = (e) => {
+    e.preventDefault();
+    window.location.assign(
+      `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=code`
+    );
+  };
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=code`;
 
   const onClickSubmit = () => {
-    const { useremail, password } = loginInfo;
-    // if (!useremail || !password) {
-    //   setErrorMessage('이메일과 비밀번호를 확인하세요');
-    //   return;
-    // }
+    const { userEmail, password } = loginInfo;
+    if (!userEmail || !password) {
+      setErrorMessage('이메일과 비밀번호를 확인하세요');
+      return;
+    }
     axios
       .post(
-        `${process.env.REACT_APP_API_URL}/users/login`,
-        { userEmail: useremail, password },
+        'http://localhost:8080/users/login',
+        { userEmail, password },
         {
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+          },
           withCredentials: true,
         }
       )
       .then((res) => {
+        if (res.data.data.accessToken) {
+          localStorage.setItem('user', res.data.data.accessToken);
+        }
         handleResponseSuccess();
-        openModalHandler();
-        navigate('/');
-        setUserinfo(useremail, password);
+        setLoginConfirmOpen(true);
       });
   };
 
   const handleLogout = () => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/users/logout`, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        },
-        withCredentials: true,
-      })
+      .get(`http://localhost:8080/users/logout`)
       .then((res) => {
-        setUserinfo(null);
-        setIsLogin(false);
-        navigate('/');
-        alert('로그아웃 되었습니다.');
+        setLogoutConfirmOpen(true);
+        localStorage.clear();
       })
       .catch((err) => {
         alert('잘못된 요청입니다');
@@ -138,7 +131,7 @@ function Login() {
 
   return (
     <>
-      {isLogin ? (
+      {localStorage.getItem('user') ? (
         <button onClick={handleLogout}>로그아웃</button>
       ) : (
         <ModalBtn onClick={openModalHandler}>로그인</ModalBtn>
@@ -163,7 +156,7 @@ function Login() {
               type='text'
               className='input-login'
               placeholder='example@kakao.com'
-              onChange={handleInputValue('useremail')}
+              onChange={handleInputValue('userEmail')}
             />
             <div className='desc input-title'>비밀번호</div>
             <input
@@ -180,9 +173,7 @@ function Login() {
             >
               로그인
             </button>
-            <a href={KAKAO_AUTH_URL}>
-              <div className='kakao_btn'></div>
-            </a>
+            <div className='kakao_btn' onClick={kakaoLoginHandler}></div>
             <br />
             <div className='signup-text'>
               아이디가 없으신가요 ?
@@ -192,6 +183,12 @@ function Login() {
             </div>
           </ModalView>
         </ModalBackdrop>
+      ) : null}
+      {loginConfirmOpen ? (
+        <ConfirmModal>로그인 되었습니다!</ConfirmModal>
+      ) : null}
+      {logoutConfirmOpen ? (
+        <ConfirmModal>로그아웃 되었습니다!</ConfirmModal>
       ) : null}
     </>
   );

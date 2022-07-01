@@ -16,12 +16,18 @@ module.exports = {
   },
   patch: async (req, res) => {
     const userInfo = checkTokens(req);
+    console.log(userInfo);
     if (!userInfo) {
       res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
       const matchedUser = await user.findOne({ where: { id: userInfo.id } });
       await matchedUser.update({ user_name: req.body.user_name });
-      res.status(200).json({ user_name: matchedUser.user_name, message: '닉네임이 수정되었습니다' });
+      res
+        .status(200)
+        .json({
+          user_name: matchedUser.user_name,
+          message: '닉네임이 수정되었습니다',
+        });
     }
   },
 };
