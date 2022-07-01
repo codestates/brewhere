@@ -4,6 +4,9 @@
 ![0 25x](https://user-images.githubusercontent.com/91467260/167632126-7f8b3473-e94d-4efe-94f9-2ec25a5692a4.png)
 
 
+## Deploy
+[Brewhere](https://client.brewhere.link/)
+
 ## About
 
 나의 탄생석을 알고 싶어 하는 소년·소녀의 마음으로, 우리는 나만의 탄생주를 찾기 위해 오늘도 검색창을 켰는지도 모르겠습니다.
@@ -51,7 +54,3 @@
 - Position: Front-end
 - Stack : JavaScript, React.js, CSS
 - main kick: 회원가입, 로그인, 로그아웃 등 회원정보 관련 기능
-
-
-## Deploy
-[Brewhere](https://client.brewhere.link/)
