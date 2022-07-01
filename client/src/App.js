@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Home from './pages/Home';
-import Map from './pages/Map';
+import BrewhereMap from './pages/Map';
 import Mypage from './pages/Mypage';
 import LoginModal from './components/Modal/Login/Login';
 import Kakao from './components/Kakao/KakaoAuth';
@@ -15,7 +15,7 @@ function App() {
         <Nav />
         <Routes>
           <Route exact path='/' element={<Home />} />
-          <Route path='/map' element={<Map />} />
+          <Route path='/map' element={<BrewhereMap />} />
           <Route path='/mypage' element={<Mypage />} />
           <Route path='oauth/callback/kakao' element={<Kakao />} />
           <Route element={LoginModal} />
